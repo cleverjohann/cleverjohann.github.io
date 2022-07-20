@@ -1,0 +1,24 @@
+ body{
+    background-color: #f2f2f2;
+ }
+    .navbar{
+        background-color: #f2f2f2;
+    }
+    .navbar-brand{
+        color: #ff0000;
+    }
+    .navbar-brand:hover{
+        color: #ff0000;
+    }
+    .navbar-nav li a{
+        color: #ff0000;
+    }
+    .navbar-nav li a:hover{
+        color: #ff0000;
+    }
+    .navbar-nav li.active a{
+        color: #ff0000;
+    }
+    .navbar-nav li.active a:hover{
+        color: #ff0000;
+    }
