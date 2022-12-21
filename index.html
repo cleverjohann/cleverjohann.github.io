@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css" />    
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        
+    </header>
+    <div class="container my-5">
+        <div class="row">
+            
+            <div class="col-sm-6 col-md-8">
+                <div class="row ">
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-start">
+                            <img
+                                src="img/Logo.png"
+                                alt="logo"
+                            />
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="form-floating my-5" style="height: 500px;">
+                            <textarea
+                              name="query"
+                              id="message"
+                              style="height: 150px"
+                              class="form-control"
+                              placeholder="Write a message"
+                            ></textarea>
+              
+                            <label for="query" style="padding-left: 25px;">Escribe tu mensaje</label>
+                        </div>
+                    </div>
+                    <div class="row  text-center">
+                        
+                        <p>Solo letras minusculas sin acentos</p>
+                        <div class="col-md-12 d-flex justify-content-evenly">
+                            <button id="btnEncriptar" class="btn btn-primary btn-lg">Encriptar</button>
+                            <button id="btnDecifrar" class="btn btn-primary btn-lg" >Decifrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 border">
+                <div class="row align-items-center " >
+                    <div class="col-12" style="width: 18rem; height: 700px;" >
+                        <div class="row">
+                            <img
+                          src="img/Muñeco.png"
+                          class="card-img-top"
+                          alt="muñeco"
+                        />
+                        </div>
+                        
+                    </div>              
+                </div>
+                <div class="row align-items-end">
+                    <button id="btnCopiar" class="btn btn-primary btn-lg" >Copiar</button>
+                </div>
+
+            </div>
+            
+        </div> 
+    </div>
+    
+    
+        
+    
+
+    
+    <script src="js/bootstrap.js"></script>
+    <script>
+        let message = document.getElementById("message");
+        let btnEncriptar = document.getElementById("btnEncriptar");
+        const message2 = document.getElementById("message2");
+        console.log("probando indexof");
+        let word = "Hola";
+        console.log(word.search("x"));
+        function encryptVowels(messageencriptar) 
+        
+        {
+        // Creamos un diccionario con las vocales y los caracteres con los que queremos reemplazarlas
+        const vowelsDict = 
+        {
+        'a': 'ai',
+        'e': 'enter',
+        'i': 'imes',
+        'o': 'ober',
+        'u': 'ufat'
+        };
+
+        // Recorremos la palabra y reemplazamos cada vocal por el carácter correspondiente
+            let encryptedWord = '';
+            for (const letter of messageencriptar) {
+                encryptedWord += vowelsDict[letter.toLowerCase()] || letter;
+                console.log(encryptedWord);
+            }
+
+            return encryptedWord;
+        }
+        function decryptWords(paragraph) {
+        // dividimos el párrafo en una matriz de palabras
+        let words = paragraph.split(" ");
+
+        // recorremos la matriz de palabras y reemplazamos las letras
+        for (let i = 0; i < words.length; i++) {
+        let word = words[i];
+        let confirmacion = 0;
+        let searchStrings = ["ai", "enter", "imes", "ober", "ufat"];
+
+            while(confirmacion !== -1){
+            word = word.replace("ai", "a");     
+            word = word.replace("enter", "e");       
+            word = word.replace("imes", "i");       
+            word = word.replace("ober", "o");       
+            word = word.replace("ufat", "u");
+            for(let j = 0; j < searchStrings.length; j++){
+                confirmacion = word.search(searchStrings[j]);
+                if(confirmacion !== -1){
+                    break;
+                }
+            }
+        
+        }
+        words[i] = word;
+        
+        }
+
+        // unimos la matriz de palabras en un párrafo nuevo
+        paragraph = words.join(" ");
+
+        return paragraph;
+        }   
+
+        btnEncriptar.addEventListener("click", function(){           
+            message2.textContent = encryptVowels(message.value);
+        })
+        btnDecifrar.addEventListener("click", function(){           
+            message2.textContent = decryptWords(message.value);
+        })
+        
+
+
+    </script>
+    
+</body>
+</html>
