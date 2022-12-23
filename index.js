@@ -3,13 +3,13 @@
         let btnEncriptar = document.getElementById("btnEncriptar");
         let btnDecifrar = document.getElementById("btnDecifrar");
         let btnCopiar = document.getElementById("btnCopiar");
-        const message2 = document.getElementById("message2");
+        let message2 = document.getElementById("message2");
         
         console.log("probando indexof");
         let word = "Hola";
         console.log(word.search("x"));
+
         function encryptVowels(messageencriptar) 
-        
         {
         // Creamos un diccionario con las vocales y los caracteres con los que queremos reemplazarlas
         const vowelsDict = 
@@ -39,13 +39,14 @@
         let word = words[i];
         let confirmacion = 0;
         let searchStrings = ["ai", "enter", "imes", "ober", "ufat"];
-
+            //Revisa si es que en una palabra existen encriptaciones
             while(confirmacion !== -1){
             word = word.replace("ai", "a");     
             word = word.replace("enter", "e");       
             word = word.replace("imes", "i");       
             word = word.replace("ober", "o");       
             word = word.replace("ufat", "u");
+            //Se revisa si es que hay varias encriptaciones en una palabra
             for(let j = 0; j < searchStrings.length; j++){
                 confirmacion = word.search(searchStrings[j]);
                 if(confirmacion !== -1){
@@ -73,7 +74,9 @@
             console.log("probando decifrar")
         })
         btnCopiar.addEventListener("click", function(){
-            message2.select();
-            document.execCommand("copy");
+            
+            
         })
+        
+    
 
