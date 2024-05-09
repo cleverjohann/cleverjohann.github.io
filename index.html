@@ -36,9 +36,26 @@
         <section>
             <h2>Contacto</h2>
             <p>Información de contacto y enlaces a tus perfiles de redes sociales.</p>
+            <div>
+                <button onclick="copyEmail()">Copiar correo</button>
+                <button onclick="openEmail()">Enviar mensaje</button>
+            </div>
         </section>
+
+        <script>
+            function copyEmail() {
+                var email = 'mcleverjohann@outlook.com';
+                navigator.clipboard.writeText(email);
+                alert('Correo copiado: ' + email);
+            }
+
+            function openEmail() {
+                var email = 'mcleverjohann@outlook.com';
+                window.open('mailto:' + email);
+            }
+        </script>
     </main>
-    <footer class="bg-dark text-white p-3 mt-4">
+    <footer class="bg-dark text-white p-3 mt-4" style="position: fixed; bottom: 0; width: 100%;"></footer>
         <p class="text-center">© 2024 Johann. Todos los derechos reservados.</p>
     </footer>
   </body>
