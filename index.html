@@ -17,13 +17,16 @@
     ></script>
   </head>
   <body>
-    <header class="bg-dark text-white p-3">
-        <h1>Bienvenido al Portafolio de Johann</h1>
+    <header class="bg-dark text-white p-3 text-center">
+        <h1 style="margin: 0 auto;">Clever Machaca</h1>
     </header>
-    <main class="container mt-4">
-        <section>
+    <main class="container mt-4 text-center"></main>
+        <section class="text-center" style="margin: 0 auto;"></section>
             <h2>Sobre mí</h2>
             <p>Información sobre ti y tus habilidades.</p>
+            <div class="mt-4">
+                <img src="./img/IMG_20240509_173932_867.jpg" alt="Profile Picture" class="rounded-circle img-fluid" style="width: 239px; height: 310px;">
+            </div>
         </section>
         <section>
             <h2>Proyectos</h2>
@@ -36,9 +39,12 @@
         <section>
             <h2>Contacto</h2>
             <p>Información de contacto y enlaces a tus perfiles de redes sociales.</p>
-            <div>
-                <button onclick="copyEmail()">Copiar correo</button>
-                <button onclick="openEmail()">Enviar mensaje</button>
+            <div class="mt-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" value="mcleverjohann@outlook.com">
+                    <button class="btn btn-primary" onclick="copyEmail()">Copiar correo</button>
+                    <button class="btn btn-secondary" onclick="openEmail()">Enviar mensaje</button>
+                </div>
             </div>
         </section>
 
@@ -55,7 +61,7 @@
             }
         </script>
     </main>
-    <footer class="bg-dark text-white p-3 mt-4" style="position: fixed; bottom: 0; width: 100%;"></footer>
+    <footer class="bg-dark text-white p-3 mt-4" style="position: fixed; bottom: 0; width: 100%;">
         <p class="text-center">© 2024 Johann. Todos los derechos reservados.</p>
     </footer>
   </body>
