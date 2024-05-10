@@ -55,40 +55,54 @@
         <h2>Experiencia</h2>
         <p>Información sobre tu experiencia laboral y educación.</p>
       </section>
-      <section class="row justify-content-center">
+    <section class="row justify-content-center">
         <h2>Contacto</h2>
         <p>
-          Información de contacto y enlaces a tus perfiles de redes sociales.
+            Información de contacto y enlaces a tus perfiles de redes sociales.
         </p>
         <div class="mt-4" style="max-width: 540px">
-          <div class="input-group">
-            <input
-              type="text"
-              class="form-control"
-              value="mcleverjohann@outlook.com"
-            />
-            <button class="btn btn-primary" onclick="copyEmail()">
-              Copiar correo
-            </button>
-            <button class="btn btn-secondary" onclick="openEmail()">
-              Enviar mensaje
-            </button>
-          </div>
+            <div class="input-group">
+                <input
+                    type="text"
+                    class="form-control"
+                    value="mcleverjohann@outlook.com"
+                />
+                <button class="btn btn-primary" id="copyEmailBtn" onclick="copyEmail()">
+                    Copiar correo
+                </button>
+                <button class="btn btn-secondary" onclick="openEmail()">
+                    Enviar correo
+                </button>
+            </div>
+            <div id="liveAlertPlaceholder"></div>
         </div>
-      </section>
-
-      <script>
+    </section>
+    <script>
+        const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+        const appendAlert = (message, type) => {
+          const wrapper = document.createElement('div')
+          wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+            `   <div>${message}</div>`,
+            '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+            '</div>'
+          ].join('')
+    
+          alertPlaceholder.append(wrapper)
+        }
+    
         function copyEmail() {
-          var email = "mcleverjohann@outlook.com";
-          navigator.clipboard.writeText(email);
-          alert("Correo copiado: " + email);
+            var email = "mcleverjohann@outlook.com";
+            navigator.clipboard.writeText(email);
+            appendAlert("Correo copiado: " + email, 'success');
         }
-
+    </script>
+    <script>
         function openEmail() {
-          var email = "mcleverjohann@outlook.com";
-          window.open("mailto:" + email);
+            var email = "mcleverjohann@outlook.com";
+            window.open("mailto:" + email);
         }
-      </script>
+    </script>
     </main>
     <footer
       class="bg-dark text-white p-3 mt-4"
