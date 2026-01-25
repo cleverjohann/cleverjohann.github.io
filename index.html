@@ -309,47 +309,31 @@
                 class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
                 <!-- Placeholder gradient background for project image -->
                 <div
-                  class="w-full h-56 sm:h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center">
-                  <div class="text-center p-8">
-                    <div class="flex items-center justify-center gap-4 mb-4">
-                      <!-- Next.js icon -->
-                      <svg class="size-12" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="128" cy="128" r="128" fill="#000" />
-                        <path fill="url(#nextGrad1)"
-                          d="M212.634 224.028 98.335 76.8H76.8v102.357h17.228V98.68L199.11 234.446a128.433 128.433 0 0 0 13.524-10.418Z" />
-                        <path fill="url(#nextGrad2)" d="M163.556 76.8h17.067v102.4h-17.067z" />
-                        <defs>
-                          <linearGradient id="nextGrad1" x1="55.633%" x2="83.228%" y1="56.385%" y2="96.08%">
-                            <stop offset="0%" stop-color="#FFF" />
-                            <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
-                          </linearGradient>
-                          <linearGradient id="nextGrad2" x1="50%" x2="49.953%" y1="0%" y2="73.438%">
-                            <stop offset="0%" stop-color="#FFF" />
-                            <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                      <span class="text-white text-3xl">+</span>
-                      <!-- NestJS icon -->
-                      <svg class="size-12" viewBox="0 0 256 255" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#E0234E"
-                          d="M153.3 2c-4 0-7.5 1.2-10.5 3.2 5 2.2 7.6 5.9 8.8 10.2.3 1.5.6 3 .6 4.5v.8c0 4.4-1 9.2-3.3 13-4.3 7.2-11 12-19 14.2-.3.1-.6.2-.8.3 0 .1.1.3.2.4 2 1.5 4.5 2.5 7 3.2 5 1.4 10.4 1.4 15.4-.2 9.4-3 16.3-10.6 18-20.3.2-1.1.3-2.3.4-3.4V26c0-6.2-2-12-5.5-16.8C161.8 5 158 2.8 154 2h-.6zM174.8 11.5c0 .9.2 1.8.3 2.7v.4l.1.5c1.2 10.4-2.8 19.8-10 27-1.5 1.6-3.3 3-5.1 4.3-3.9 2.6-8.2 4.4-12.7 5.4-.8.2-1.7.3-2.5.5l-.4.1c-1.3.2-2.5.5-3.8.8-3.7 1-7.3 2.6-10.4 4.8-1.2.8-2.3 1.8-3.4 2.8-.5.5-1 1-1.4 1.6-.1.1-.3.2-.3.4.3 0 .4-.1.6-.2l.5-.2c3.3-1.3 6.7-2.3 10.3-2.8 1.5-.2 3-.3 4.5-.3 1.3 0 2.6 0 3.9.2 11.2 1 21.1 6 28.3 14.2 3.5 4 6.1 8.6 7.8 13.6.2.5.3 1 .5 1.5l.2.6c.4 1.4.8 2.8 1 4.2.5 2.4.9 4.9 1.1 7.4v2.3c.1 1.2.1 2.3 0 3.5-.1 1.8-.4 3.6-.7 5.3-.2 1-.4 2-.7 3-.3 1.1-.6 2.3-1 3.4-.3.8-.6 1.7-1 2.5-.2.6-.5 1.2-.7 1.8-.6 1.4-1.3 2.7-2 4-.3.5-.6 1-.9 1.4-.4.6-.7 1.2-1.1 1.7-.8 1.1-1.6 2.2-2.5 3.2-.5.6-1 1.1-1.6 1.7l-.2.2c-.5.6-1.1 1.1-1.7 1.6-.5.5-1 .9-1.5 1.3-.9.8-2 1.5-3 2.3l-.5.3c-.6.4-1.2.9-1.8 1.2-.8.5-1.6 1-2.4 1.4-.7.4-1.4.7-2 1-.5.2-1 .5-1.6.7-.3.1-.5.2-.8.3l-.5.1c-.1.1-.3.1-.4.2h-.1c0 .4 0 .4.4.4h.2c2.6-.2 5.2-.7 7.7-1.3 6-1.6 11.7-4.2 16.7-7.8 13.1-9.4 21.2-23.7 22.4-39.4V92c.4-8.3-.8-16.3-3.6-24.2a64.2 64.2 0 00-14.5-23.8 64.6 64.6 0 00-17-12.8l-.6-.3-.5-.2a64 64 0 00-11.3-5c-.2 0-.4-.2-.5-.3 0 0-.2 0-.2-.2-.5-.2-1-.3-1.3-.4h-.2c-1.7-.5-3.4-.9-5.1-1.2l-2.4-.5c-2.3-.4-4.6-.6-7-.8H156c-1.1-.1-2.1 0-3.2 0h-1.9c-.8.1-1.6.1-2.4.2h-.3v.2c.3.3.9.4 1.3.5 2.5.6 5 1.6 7.2 2.8 7.4 4.2 12.7 10.8 15.5 18.9.6 1.6 1 3.3 1.3 5 .2.9.3 1.9.4 2.8l.2 1.4v.4c0 .7 0 1.5.1 2.2v.4z" />
-                      </svg>
+                  class="w-full h-56 sm:h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-6">
+                  <div class="text-center">
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                      <!-- Next.js icon (simplified) -->
+                      <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center">
+                        <span class="text-black font-bold text-2xl">N</span>
+                      </div>
+                      <span class="text-white text-2xl font-light">+</span>
+                      <!-- NestJS icon (simplified) -->
+                      <div class="w-14 h-14 rounded-full bg-[#E0234E] flex items-center justify-center">
+                        <span class="text-white font-bold text-2xl">N</span>
+                      </div>
                     </div>
-                    <p class="text-gray-400 text-sm">Proyecto en desarrollo</p>
-                  </div>
-                </div>
-                <!-- Badge En Desarrollo -->
-                <div class="absolute top-3 right-3">
-                  <span
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-amber-500/90 text-white backdrop-blur-sm">
-                    <span class="relative flex h-2 w-2">
-                      <span
-                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                    <p class="text-gray-400 text-sm mb-3">Proyecto en desarrollo</p>
+                    <!-- Badge En Desarrollo (moved inside content area) -->
+                    <span
+                      class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-amber-500 text-white">
+                      <span class="relative flex h-2 w-2">
+                        <span
+                          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                      </span>
+                      En Desarrollo
                     </span>
-                    En Desarrollo
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -427,42 +411,31 @@
                 class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
                 <!-- Placeholder gradient for Kotlin + Spring Boot -->
                 <div
-                  class="w-full h-56 sm:h-full bg-gradient-to-br from-purple-900 via-green-900 to-gray-900 flex items-center justify-center">
-                  <div class="text-center p-8">
-                    <div class="flex items-center justify-center gap-4 mb-4">
-                      <!-- Spring Boot icon -->
-                      <svg class="size-12" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#8bc34a"
-                          d="M43.982,23.635c0.069-4.261-0.891-9.328-2.891-15.273l-1.568-4.662l-2.13,4.433 c-0.114,0.237-0.244,0.469-0.38,0.698C33.514,5.827,28.974,4,24,4C12.954,4,4,12.954,4,24c0,11.046,8.954,20,20,20s20-8.954,20-20 C44,23.877,43.984,23.758,43.982,23.635z" />
-                        <path fill="#fff"
-                          d="M39.385 32.558c-3.123 4.302-8.651 4.533-13.854 4.442H18.75h-1.938c4.428-1.593 7.063-1.972 9.754-3.4 5.068-2.665 10.078-8.496 11.121-14.562-1.93 5.836-7.779 10.85-13.109 12.889-3.652 1.393-10.248 2.745-10.248 2.745l-.267-.145C9.573 32.268 9.437 22.214 17.6 18.968c3.574-1.423 6.993-.641 10.854-1.593 4.122-1.012 8.89-4.208 10.83-8.375C41.456 15.667 44.07 26.106 39.385 32.558L39.385 32.558zM15.668 38.445C15.386 38.795 14.955 39 14.505 39c-.823 0-1.495-.677-1.495-1.5s.677-1.5 1.495-1.5c.341 0 .677.118.941.336C16.086 36.855 16.186 37.805 15.668 38.445L15.668 38.445z" />
-                      </svg>
-                      <span class="text-white text-3xl">+</span>
-                      <!-- Kotlin icon -->
-                      <svg class="size-12" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                          <linearGradient id="kotlinGrad" x1="0%" y1="50%" x2="100%" y2="50%">
-                            <stop offset="0%" stop-color="#E44857" />
-                            <stop offset="50%" stop-color="#C711E1" />
-                            <stop offset="100%" stop-color="#7F52FF" />
-                          </linearGradient>
-                        </defs>
-                        <path fill="url(#kotlinGrad)" d="M256 256H0V0h256L128 128 256 256z" />
-                      </svg>
+                  class="w-full h-56 sm:h-full bg-gradient-to-br from-purple-900 via-green-900 to-gray-900 flex items-center justify-center p-6">
+                  <div class="text-center">
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                      <!-- Spring Boot icon (simplified) -->
+                      <div class="w-14 h-14 rounded-full bg-[#6DB33F] flex items-center justify-center">
+                        <span class="text-white font-bold text-2xl">S</span>
+                      </div>
+                      <span class="text-white text-2xl font-light">+</span>
+                      <!-- Kotlin icon (simplified) -->
+                      <div
+                        class="w-14 h-14 rounded-lg bg-gradient-to-br from-[#E44857] via-[#C711E1] to-[#7F52FF] flex items-center justify-center">
+                        <span class="text-white font-bold text-2xl">K</span>
+                      </div>
                     </div>
-                    <p class="text-gray-400 text-sm">Próximo proyecto</p>
+                    <p class="text-gray-400 text-sm mb-3">Próximo proyecto</p>
+                    <!-- Badge Planificado (moved inside content area) -->
+                    <span
+                      class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-purple-500 text-white">
+                      <svg class="size-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Planificado
+                    </span>
                   </div>
-                </div>
-                <!-- Badge Planificado -->
-                <div class="absolute top-3 right-3">
-                  <span
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-purple-500/90 text-white backdrop-blur-sm">
-                    <svg class="size-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Planificado
-                  </span>
                 </div>
               </div>
             </div>
