@@ -1,582 +1,2614 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clever Johann Machaca Asto | Full-Stack Engineer (Backend, Frontend y Móvil)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clever Johann Machaca Asto | Full-Stack Engineer (Backend, Frontend &amp; Móvil)</title>
   <meta name="description"
-    content="Clever Johann Machaca Asto — Ingeniero de Sistemas e Informática de Arequipa, Perú. Full-Stack Engineer: backend con Java/Spring Boot, Kotlin y Python/FastAPI; frontend y móvil con Flutter y TypeScript. Construyo y llevo productos reales a producción, incluyendo sistemas con IA." />
+    content="Clever Johann Machaca Asto — Ingeniero de Sistemas e Informática de Arequipa, Perú. Full-Stack Engineer especializado en backend con Java/Spring Boot, Kotlin y Python/FastAPI; interfaces modernas con Flutter y TypeScript; y soluciones de IA aplicada (RAG, pgvector, LLMs) en producción." />
   <meta name="keywords"
-    content="Clever Johann Machaca Asto, Full-Stack Engineer, Backend Developer, Frontend, Móvil, Java, Spring Boot, Kotlin, Python, FastAPI, Flutter, TypeScript, Next.js, NestJS, Rust, Tauri, PostgreSQL, pgvector, Docker, IA, LLM, Perú, Arequipa" />
+    content="Clever Johann Machaca Asto, Full-Stack Engineer, Backend Developer, Java, Spring Boot, Kotlin, Python, FastAPI, Flutter, TypeScript, Next.js, NestJS, Rust, Tauri 2, PostgreSQL, pgvector, Redis, Docker, IA, LLM, RAG, MCP, Perú, Arequipa" />
   <meta name="author" content="Clever Johann Machaca Asto" />
   <link rel="canonical" href="https://cleverjohann.github.io/" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
+  <!-- Open Graph / Social Cards -->
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="Clever Johann Machaca Asto | Full-Stack Engineer" />
   <meta property="og:description"
-    content="Full-Stack Engineer de Arequipa, Perú. Backend (Java/Spring Boot, Kotlin, Python/FastAPI), frontend y móvil (Flutter, TypeScript) e IA aplicada. Productos reales en producción." />
+    content="Full-Stack Engineer de Arequipa, Perú. Backend escalable (Java/Spring Boot, Kotlin, Python/FastAPI), frontend/móvil (Flutter, TypeScript) e IA aplicada en producción." />
   <meta property="og:url" content="https://cleverjohann.github.io/" />
   <meta property="og:image" content="https://cleverjohann.github.io/img/projects/tutor-socratico-1.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
   <style>
+    /* ==========================================================================
+       VARIABLES Y TEMAS
+       ========================================================================== */
     :root {
-      --bg: #f7f8fc;
-      --bg-soft: #ffffff;
-      --text: #1b2130;
-      --muted: #5b6475;
-      --border: #e4e7f0;
-      --card: #ffffff;
-      --accent: #5b6cff;
-      --accent-2: #8b5cf6;
-      --accent-soft: #eef0ff;
-      --chip-bg: #f1f3fa;
-      --chip-text: #3c445c;
-      --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 12px 32px rgba(16, 24, 40, .08);
-      --shadow-hover: 0 2px 4px rgba(16, 24, 40, .06), 0 20px 48px rgba(16, 24, 40, .14);
-      --radius: 18px;
-      --max: 1080px;
+      --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+      /* Paleta Modo Claro */
+      --bg: #f8fafc;
+      --bg-canvas: #ffffff;
+      --card-bg: #ffffff;
+      --card-bg-elevated: #ffffff;
+      --card-border: #e2e8f0;
+      --card-border-hover: #cbd5e1;
+      --card-glow: rgba(99, 102, 241, 0.08);
+
+      --text: #0f172a;
+      --text-soft: #334155;
+      --muted: #64748b;
+      --border: #e2e8f0;
+
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-soft: #eef2ff;
+      --accent: #8b5cf6;
+      --accent-cyan: #06b6d4;
+
+      --chip-bg: #f1f5f9;
+      --chip-text: #334155;
+      --chip-border: #e2e8f0;
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 25px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+      --shadow-xl: 0 20px 35px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --max-width: 1140px;
     }
 
     html.dark {
-      --bg: #0b0f1a;
-      --bg-soft: #111728;
-      --text: #eef1f8;
-      --muted: #a3adc2;
-      --border: #232c42;
-      --card: #121a2c;
-      --accent: #8b9bff;
-      --accent-2: #b794f6;
-      --accent-soft: #1a2340;
-      --chip-bg: #1b2338;
-      --chip-text: #cdd6ea;
-      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 16px 40px rgba(0, 0, 0, .45);
-      --shadow-hover: 0 2px 6px rgba(0, 0, 0, .5), 0 24px 56px rgba(0, 0, 0, .55);
+      /* Paleta Modo Oscuro Premium */
+      --bg: #090d16;
+      --bg-canvas: #0c1220;
+      --card-bg: rgba(16, 23, 40, 0.72);
+      --card-bg-elevated: rgba(22, 31, 54, 0.9);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(129, 140, 248, 0.35);
+      --card-glow: rgba(99, 102, 241, 0.15);
+
+      --text: #f8fafc;
+      --text-soft: #cbd5e1;
+      --muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.1);
+
+      --primary: #6366f1;
+      --primary-hover: #818cf8;
+      --primary-soft: rgba(99, 102, 241, 0.16);
+      --accent: #a855f7;
+      --accent-cyan: #22d3ee;
+
+      --chip-bg: rgba(30, 41, 69, 0.7);
+      --chip-text: #e2e8f0;
+      --chip-border: rgba(255, 255, 255, 0.1);
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 4px 12px 0 rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 12px 30px -4px rgba(0, 0, 0, 0.6);
+      --shadow-xl: 0 24px 50px -8px rgba(0, 0, 0, 0.75);
     }
 
-    * { box-sizing: border-box; }
+    /* ==========================================================================
+       RESET Y BASE
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark light;
+    }
 
     body {
-      margin: 0;
-      background: var(--bg);
+      font-family: var(--font-sans);
+      background-color: var(--bg);
       color: var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+      overflow-x: hidden;
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
+    /* Patrón de fondo geométrico sutil */
     body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -15%, rgba(99, 102, 241, 0.18), transparent 70%),
+        radial-gradient(circle 300px at 90% 20%, rgba(168, 85, 247, 0.12), transparent 70%),
+        radial-gradient(circle 350px at 10% 70%, rgba(6, 182, 212, 0.1), transparent 70%);
+    }
+
+    body::after {
       content: "";
       position: fixed;
       inset: 0;
       z-index: -1;
       pointer-events: none;
-      background:
-        radial-gradient(60% 50% at 50% -10%, rgba(91, 108, 255, .18), transparent 70%),
-        radial-gradient(40% 40% at 90% 0%, rgba(139, 92, 246, .14), transparent 70%);
+      background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    html:not(.dark) body::after {
+      background-image: radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+    }
 
-    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s ease, opacity 0.15s ease;
+    }
 
-    /* Header */
-    header.site {
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVEGACIÓN
+       ========================================================================== */
+    header.site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 16px;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-avatar-mini {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1.5px solid var(--primary);
+    }
+
+    .brand-tag {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-left: 2px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-menu a {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      transition: all 0.15s ease;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--text);
+      background: var(--chip-bg);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-contact-nav {
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      background: var(--primary);
+      color: #ffffff !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-contact-nav:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+    }
+
+    .theme-toggle-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      transform: scale(1.06);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .theme-toggle-btn svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    html.dark .theme-icon-sun { display: block; }
+    html.dark .theme-icon-moon { display: none; }
+    html:not(.dark) .theme-icon-sun { display: none; }
+    html:not(.dark) .theme-icon-moon { display: block; }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding: 70px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .availability-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #22c55e;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      background: #22c55e;
+      position: relative;
+    }
+
+    .pulse-dot::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: var(--radius-full);
+      background: #22c55e;
+      opacity: 0.4;
+      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes ping {
+      75%, 100% {
+        transform: scale(2.2);
+        opacity: 0;
+      }
+    }
+
+    .location-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: var(--chip-bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .hero-profile-header {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-avatar-wrapper {
+      position: relative;
+      width: 104px;
+      height: 104px;
+      flex-shrink: 0;
+    }
+
+    .hero-avatar-glow {
+      position: absolute;
+      inset: -3px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #6366f1, #a855f7, #06b6d4);
+      z-index: 0;
+      filter: blur(4px);
+      opacity: 0.75;
+    }
+
+    .hero-avatar {
+      position: relative;
+      z-index: 1;
+      width: 104px;
+      height: 104px;
+      border-radius: 26px;
+      object-fit: cover;
+      object-position: 50% 25%;
+      border: 3px solid var(--bg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-titles h1 {
+      font-size: clamp(2.1rem, 5.2vw, 3.4rem);
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .hero-titles .role-tagline {
+      font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+      font-weight: 700;
+      color: var(--text-soft);
+      letter-spacing: -0.01em;
+    }
+
+    .hero-bio {
+      font-size: 1.12rem;
+      color: var(--text-soft);
+      max-width: 76ch;
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+
+    .hero-bio strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* Ribbon de stack rápido en Hero */
+    .quick-stack-bar {
+      margin-bottom: 30px;
+    }
+
+    .quick-stack-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quick-stack-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .quick-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .quick-chip:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    .quick-chip svg,
+    .quick-chip img {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* CTAs */
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 11px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      user-select: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      color: #ffffff !important;
+      box-shadow: 0 4px 18px rgba(79, 70, 229, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.48);
+    }
+
+    .btn-secondary {
+      background: var(--card-bg);
+      color: var(--text);
+      border-color: var(--card-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+      color: var(--primary);
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Stat Cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
       backdrop-filter: blur(12px);
-      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--card-border-hover);
+    }
+
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .stat-card:hover::before {
+      opacity: 1;
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 4px;
+      background: linear-gradient(135deg, var(--text) 30%, var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       SECCIONES Y ENCABEZADOS
+       ========================================================================== */
+    section.section-block {
+      padding: 56px 0 20px;
+    }
+
+    .section-header {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+
+    .section-title svg {
+      width: 28px;
+      height: 28px;
+      color: var(--primary);
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 72ch;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       FILTROS DE PROYECTOS
+       ========================================================================== */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+      padding: 6px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-full);
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    .filter-btn {
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: all 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .filter-btn:hover {
+      color: var(--text);
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 2px 10px rgba(99, 102, 241, 0.35);
+    }
+
+    .filter-count {
+      font-size: 0.75rem;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .filter-btn:not(.active) .filter-count {
+      background: var(--chip-bg);
+      color: var(--muted);
+    }
+
+    /* ==========================================================================
+       CARDS DE PROYECTOS (DISEÑO PREMIUM & TECNOLOGÍAS DESTACADAS)
+       ========================================================================== */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(14px);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 940px) {
+      .project-card {
+        grid-template-columns: 440px 1fr;
+      }
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--card-border-hover);
+    }
+
+    /* Columna Izquierda: Galería / Mockup */
+    .project-media-col {
+      background: color-mix(in srgb, var(--card-bg) 60%, var(--bg));
+      border-bottom: 1px solid var(--card-border);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    @media (min-width: 940px) {
+      .project-media-col {
+        border-bottom: none;
+        border-right: 1px solid var(--card-border);
+      }
+    }
+
+    .media-preview-container {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: #0d121f;
+      aspect-ratio: 16 / 10;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .media-preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .media-preview-container:hover .media-preview-img {
+      transform: scale(1.04);
+    }
+
+    .media-zoom-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 15, 28, 0.55);
+      backdrop-filter: blur(2px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      opacity: 0;
+      transition: opacity 0.22s ease;
+      color: #ffffff;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .media-zoom-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .media-zoom-icon svg {
+      width: 22px;
+      height: 22px;
+      color: #ffffff;
+    }
+
+    .media-preview-container:hover .media-zoom-overlay,
+    .media-preview-container:focus-visible .media-zoom-overlay {
+      opacity: 1;
+    }
+
+    /* Thumbnails de capturas disponibles */
+    .media-thumbs-strip {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .thumb-btn {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 11px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-soft);
+      transition: all 0.15s ease;
+    }
+
+    .thumb-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--chip-bg);
+    }
+
+    .thumb-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Columna Derecha: Información del Proyecto */
+    .project-info-col {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .project-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .status-badge.prod {
+      background: rgba(34, 197, 94, 0.14);
+      color: #16a34a;
+      border: 1px solid rgba(34, 197, 94, 0.28);
+    }
+    html.dark .status-badge.prod {
+      color: #4ade80;
+    }
+
+    .status-badge.dev {
+      background: rgba(245, 158, 11, 0.14);
+      color: #d97706;
+      border: 1px solid rgba(245, 158, 11, 0.28);
+    }
+    html.dark .status-badge.dev {
+      color: #fbbf24;
+    }
+
+    .category-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--muted);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: var(--chip-bg);
+      border: 1px solid var(--border);
+    }
+
+    .repo-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: var(--chip-bg);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .repo-badge svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .project-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .project-subtitle {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .project-description {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .project-description strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       TECNOLOGÍAS EXPUESAS CON LOGOS Y COLORES OFICIALES
+       ========================================================================== */
+    .project-tech-section {
+      margin-bottom: 22px;
+    }
+
+    .tech-section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tech-badges-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .tech-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      background: var(--chip-bg);
+      border: 1px solid var(--chip-border);
+      color: var(--chip-text);
+      transition: all 0.15s ease;
+      cursor: default;
+    }
+
+    .tech-badge:hover {
+      border-color: var(--primary);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .tech-badge svg,
+    .tech-badge img {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    /* Resaltados Técnicos / Arquitectura */
+    .project-highlights {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .highlight-item {
+      position: relative;
+      padding-left: 24px;
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      line-height: 1.55;
+    }
+
+    .highlight-item::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 0.58em;
+      width: 7px;
+      height: 7px;
+      border-radius: var(--radius-full);
+      background: var(--primary);
+      box-shadow: 0 0 6px var(--primary);
+    }
+
+    .highlight-item strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* Footer de la Card */
+    .project-card-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn-gallery {
+      background: var(--primary-soft);
+      color: var(--primary) !important;
+      border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+      padding: 8px 16px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.18s ease;
+    }
+
+    .btn-gallery:hover {
+      background: var(--primary);
+      color: #ffffff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+    }
+
+    .btn-card-link {
+      background: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--card-border);
+      padding: 8px 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-card-link:hover {
+      border-color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .btn-card-link svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .confidential-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-left: auto;
+      font-style: italic;
+    }
+
+    /* ==========================================================================
+       MODAL LIGHTBOX / VISOR INTERACTIVO (SOLUCIÓN "REGRESAR ATRÁS")
+       ========================================================================== */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      background: rgba(5, 8, 18, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Barra Superior del Lightbox con botón "← Regresar" MUY VISIBLE */
+    .lightbox-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      background: rgba(10, 15, 28, 0.85);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      gap: 16px;
+    }
+
+    .lightbox-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 20px;
+      border-radius: var(--radius-full);
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+    }
+
+    .lightbox-back-btn:hover {
+      background: var(--primary-hover);
+      transform: translateX(-3px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.55);
+    }
+
+    .lightbox-back-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .lightbox-title-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .lightbox-project-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .lightbox-counter {
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      color: #94a3b8;
+    }
+
+    .lightbox-close-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .lightbox-close-btn:hover {
+      background: rgba(239, 68, 68, 0.25);
+      border-color: #ef4444;
+      color: #ef4444;
+      transform: rotate(90deg);
+    }
+
+    .lightbox-close-btn svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* Área Principal del Visor */
+    .lightbox-stage {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 20px 60px;
+      min-height: 420px;
+    }
+
+    .lightbox-img-wrapper {
+      max-width: 1200px;
+      max-height: 74vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #0b0f19;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+      transition: opacity 0.2s ease;
+    }
+
+    .lightbox-caption-bar {
+      width: 100%;
+      padding: 12px 20px;
+      background: rgba(14, 20, 36, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      font-size: 0.92rem;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Botones de Anterior / Siguiente */
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s ease;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .lightbox-nav-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .lightbox-nav-btn.prev {
+      left: 18px;
+    }
+
+    .lightbox-nav-btn.next {
+      right: 18px;
+    }
+
+    .lightbox-nav-btn svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    /* Tira inferior de miniaturas */
+    .lightbox-bottom-bar {
+      padding: 14px 24px;
+      background: rgba(10, 15, 28, 0.9);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lightbox-thumbnails {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .lb-thumb {
+      width: 72px;
+      height: 48px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      opacity: 0.55;
+      transition: all 0.18s ease;
+      background: #000;
+    }
+
+    .lb-thumb.active,
+    .lb-thumb:hover {
+      opacity: 1;
+      border-color: var(--primary);
+      transform: scale(1.08);
+    }
+
+    .lb-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .lightbox-hint {
+      font-size: 0.78rem;
+      color: #64748b;
+      display: flex;
+      gap: 16px;
+    }
+
+    /* ==========================================================================
+       EXPERIENCIA Y EDUCACIÓN (TIMELINE ELEGANTE)
+       ========================================================================== */
+    .timeline {
+      position: relative;
+      margin-top: 10px;
+      padding-left: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 12px;
+      bottom: 12px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 50%, var(--border) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(4px);
+      border-color: var(--card-border-hover);
+    }
+
+    .timeline-node {
+      position: absolute;
+      left: -28px;
+      top: 24px;
+      width: 16px;
+      height: 16px;
+      border-radius: var(--radius-full);
+      background: var(--bg);
+      border: 3px solid var(--primary);
+      box-shadow: 0 0 0 4px var(--primary-soft);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .timeline-title {
+      font-size: 1.22rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    .timeline-company {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .timeline-period {
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: var(--chip-bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .timeline-desc {
+      font-size: 0.96rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .timeline-desc strong {
+      color: var(--text);
+    }
+
+    /* ==========================================================================
+       SKILLS (GRID DE TARJETAS CATEGORIZADAS CON LOGOS)
+       ========================================================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--card-border-hover);
+    }
+
+    .skill-card-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
       border-bottom: 1px solid var(--border);
     }
 
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+    .skill-card-head svg {
+      width: 22px;
+      height: 22px;
+      color: var(--primary);
+    }
 
-    .brand { font-weight: 700; letter-spacing: -.01em; font-size: 1rem; }
-    .brand span { color: var(--muted); font-weight: 500; }
+    .skill-card-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text);
+    }
 
-    .nav-links { display: flex; align-items: center; gap: 4px; }
-    .nav-links a {
+    .skill-pills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+    }
+
+    /* ==========================================================================
+       SOBRE MÍ
+       ========================================================================== */
+    .about-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .about-content p {
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .about-content strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .about-highlights-box {
+      background: var(--chip-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-top: 10px;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    footer.site-footer {
+      margin-top: 80px;
+      border-top: 1px solid var(--border);
+      padding: 40px 0 60px;
+      background: color-mix(in srgb, var(--bg) 95%, transparent);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
       color: var(--muted);
-      font-size: .9rem;
-      font-weight: 500;
-      padding: 7px 11px;
-      border-radius: 999px;
-    }
-    .nav-links a:hover { color: var(--text); background: var(--chip-bg); text-decoration: none; }
-
-    .icon-btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 38px; height: 38px; border-radius: 999px;
-      border: 1px solid var(--border); background: var(--card); color: var(--text);
-      cursor: pointer; transition: transform .15s ease, background .15s ease;
-    }
-    .icon-btn:hover { transform: scale(1.06); }
-    .icon-btn svg { width: 18px; height: 18px; }
-    html.dark .icon-sun { display: none; }
-    html:not(.dark) .icon-moon { display: none; }
-
-    @media (max-width: 720px) {
-      .nav-links a:not(.cta) { display: none; }
-      .nav-links a.cta { display: inline-flex; }
+      font-size: 0.92rem;
     }
 
-    /* Hero */
-    .hero { padding: 64px 0 24px; }
-
-    .hero-top { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-
-    .avatar {
-      width: 96px; height: 96px; border-radius: 24px; object-fit: cover; object-position: 50% 25%;
-      box-shadow: var(--shadow); border: 3px solid var(--card);
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
-    .badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 12px; border-radius: 999px;
-      font-size: .82rem; font-weight: 600;
-      background: var(--accent-soft); color: var(--accent);
-      border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
-    }
-    .dot { width: 8px; height: 8px; border-radius: 999px; background: #22c55e; box-shadow: 0 0 0 4px rgba(34, 197, 94, .18); }
-
-    h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; letter-spacing: -.03em; margin: 26px 0 0; }
-    .subtitle { color: var(--muted); font-size: 1.12rem; margin: 14px 0 0; max-width: 62ch; }
-    .subtitle strong { color: var(--text); }
-
-    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-
-    .btn {
-      display: inline-flex; align-items: center; gap: 9px;
-      padding: 10px 18px; border-radius: 999px;
-      font-size: .95rem; font-weight: 600;
-      border: 1px solid var(--border); background: var(--card); color: var(--text);
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-    }
-    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); text-decoration: none; }
-    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; border-color: transparent; }
-    .btn svg { width: 17px; height: 17px; }
-
-    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-top: 34px; }
-    .stat { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
-    .stat b { display: block; font-size: 1.4rem; letter-spacing: -.02em; }
-    .stat span { color: var(--muted); font-size: .85rem; }
-
-    /* Sections */
-    section.block { padding: 46px 0 8px; }
-    h2.title {
-      display: flex; align-items: center; gap: 12px;
-      font-size: 1.6rem; letter-spacing: -.02em; margin: 0 0 22px;
-    }
-    h2.title svg { width: 26px; height: 26px; color: var(--accent); }
-    .lede { color: var(--muted); margin: -8px 0 26px; max-width: 70ch; }
-
-    /* Project cards */
-    .projects { display: flex; flex-direction: column; gap: 26px; }
-
-    article.project {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    article.project:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
-
-    .project-body { padding: 26px; }
-
-    .project-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    .project-head h3 { margin: 0; font-size: 1.35rem; letter-spacing: -.02em; }
-    .project-tag { color: var(--muted); font-size: .9rem; margin: 2px 0 0; }
-
-    .status {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
-      padding: 5px 11px; border-radius: 999px; white-space: nowrap;
-    }
-    .status.prod { background: rgba(34, 197, 94, .14); color: #16a34a; }
-    .status.dev { background: rgba(245, 158, 11, .16); color: #d97706; }
-    .status.private { background: var(--chip-bg); color: var(--chip-text); }
-    html.dark .status.prod { color: #4ade80; }
-    html.dark .status.dev { color: #fbbf24; }
-
-    .project-desc { color: var(--muted); margin: 14px 0 0; }
-    .project-desc strong { color: var(--text); }
-
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 18px; }
-    .gallery a { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: var(--chip-bg); }
-    .gallery img { display: block; width: 100%; height: 190px; object-fit: cover; object-position: top; transition: transform .35s ease; }
-    .gallery a:hover img { transform: scale(1.03); }
-    .gallery figcaption { font-size: .78rem; color: var(--muted); padding: 7px 10px; }
-
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; padding: 0; list-style: none; }
-    .chips li {
-      font-size: .8rem; font-weight: 600;
-      padding: 5px 11px; border-radius: 999px;
-      background: var(--chip-bg); color: var(--chip-text);
-      border: 1px solid var(--border);
+    .footer-links a:hover {
+      color: var(--primary);
     }
 
-    .highlights { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
-    .highlights li { position: relative; padding-left: 24px; color: var(--muted); font-size: .95rem; }
-    .highlights li::before {
-      content: ""; position: absolute; left: 6px; top: .62em;
-      width: 7px; height: 7px; border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    /* ==========================================================================
+       TOAST FEEDBACK (COPIAR CORREO)
+       ========================================================================== */
+    .toast-notification {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 10000;
+      padding: 12px 20px;
+      border-radius: var(--radius-full);
+      background: #10b981;
+      color: #ffffff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .highlights li strong { color: var(--text); }
 
-    .project-foot { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 22px; padding-top: 18px; border-top: 1px dashed var(--border); font-size: .88rem; }
-    .note { color: var(--muted); }
+    .toast-notification.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
 
-    /* Timeline */
-    .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
-    .timeline li { position: relative; padding: 18px 20px 18px 26px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; }
-    .timeline li::before { content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 4px; border-radius: 999px; background: linear-gradient(180deg, var(--accent), var(--accent-2)); }
-    .timeline h3 { margin: 0; font-size: 1.05rem; }
-    .timeline .where { color: var(--muted); font-weight: 600; font-size: .92rem; }
-    .timeline .when { color: var(--muted); font-size: .82rem; }
-    .timeline p { margin: 8px 0 0; color: var(--muted); font-size: .95rem; }
+    .toast-notification svg {
+      width: 18px;
+      height: 18px;
+    }
 
-    /* Skills */
-    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-    .skill-group { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
-    .skill-group h3 { margin: 0 0 10px; font-size: .95rem; color: var(--text); }
-    .skill-group ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 7px; }
-    .skill-group li { font-size: .8rem; padding: 4px 10px; border-radius: 999px; background: var(--chip-bg); color: var(--chip-text); border: 1px solid var(--border); }
+    /* ==========================================================================
+       ACCESIBILIDAD Y RESPONSIVE
+       ========================================================================== */
+    .skip-link {
+      position: absolute;
+      top: -999px;
+      left: 12px;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 6px;
+      z-index: 1000;
+      font-weight: 700;
+    }
 
-    /* About */
-    .about p { color: var(--muted); max-width: 74ch; }
-    .about strong { color: var(--text); }
+    .skip-link:focus {
+      top: 12px;
+    }
 
-    footer.site { margin-top: 60px; border-top: 1px solid var(--border); padding: 34px 0 50px; }
-    .foot-inner { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; color: var(--muted); font-size: .9rem; }
-    .foot-links { display: flex; gap: 16px; flex-wrap: wrap; }
-
-    .skip { position: absolute; left: -9999px; }
-    .skip:focus { left: 12px; top: 12px; z-index: 100; background: var(--card); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); }
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      .lightbox-stage {
+        padding: 10px 16px;
+      }
+      .lightbox-nav-btn {
+        width: 42px;
+        height: 42px;
+      }
+      .lightbox-nav-btn.prev { left: 8px; }
+      .lightbox-nav-btn.next { right: 8px; }
+      .lightbox-hint { display: none; }
+    }
   </style>
 </head>
 
 <body>
-  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
-  <header class="site">
-    <div class="wrap nav">
-      <div class="brand">Clever Machaca <span>· Full-Stack Engineer</span></div>
-      <nav class="nav-links" aria-label="Navegación principal">
-        <a href="#proyectos">Proyectos</a>
+  <!-- ==========================================================================
+       SVG SPRITE DE ICONOS OFICIALES DE TECNOLOGÍA
+       ========================================================================== -->
+  <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+    <!-- Python -->
+    <symbol id="icon-python" viewBox="0 0 256 256">
+      <path fill="#387EB8" d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.755H41.697S.308 61.275.308 126.319c0 65.045 36.136 62.775 36.136 62.775h21.579v-30.297s-1.196-36.136 35.539-36.136h61.509s34.343.597 34.343-33.746V28.187S194.544.072 126.916.072zM92.834 19.66a11.237 11.237 0 1 1-.001 22.475 11.237 11.237 0 0 1 .001-22.475z"/>
+      <path fill="#FFE052" d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.756h86.375s41.389 4.795 41.389-60.249c0-65.044-36.136-62.774-36.136-62.774h-21.579v30.297s1.196 36.136-35.539 36.136h-61.51s-34.342-.598-34.342 33.746v60.709s-5.132 28.115 62.499 28.115zm34.083-19.588a11.237 11.237 0 1 1 0-22.474 11.237 11.237 0 0 1 0 22.474z"/>
+    </symbol>
+
+    <!-- FastAPI -->
+    <symbol id="icon-fastapi" viewBox="0 0 256 256">
+      <circle cx="128" cy="128" r="128" fill="#05998B"/>
+      <path fill="#FFFFFF" d="M136.2 36.4L53.7 137.9c-2.3 2.8-.3 7.1 3.3 7.1h61.4l-14.7 74.6c-1.4 7.2 8 11.4 12.3 5.5l82.5-111.4c2.3-3.1 0-7.6-3.8-7.6h-56.9l12.4-62.6c1.3-6.9-7.8-11-14-7.1z"/>
+    </symbol>
+
+    <!-- PostgreSQL -->
+    <symbol id="icon-postgres" viewBox="0 0 256 256">
+      <circle cx="128" cy="128" r="128" fill="#336791"/>
+      <path fill="#FFFFFF" d="M129.5 45c-29.4 0-48.4 17.5-54.6 37.6-1.5 5-.7 10.3 2.1 14.7l4.3 6.8c-1.3 5.4-2 11.2-2 17.1 0 18.2 6.8 35.5 19.3 48.7-3.9 12.5-12.7 22.9-24.8 29.3-3.1 1.6-4.6 5.3-3.6 8.7 1 3.4 4.2 5.8 7.8 5.8 28.7 0 52.3-17.7 63.8-43.2 2.6.4 5.3.6 8 .6 32.4 0 58.7-25.7 58.7-57.4 0-37.4-32.9-68.7-79-68.7zm28.7 93.3c-7.9 0-14.3-6.4-14.3-14.3s6.4-14.3 14.3-14.3 14.3 6.4 14.3 14.3-6.4 14.3-14.3 14.3z"/>
+    </symbol>
+
+    <!-- Redis -->
+    <symbol id="icon-redis" viewBox="0 0 256 256">
+      <rect width="256" height="256" rx="32" fill="#D82C20"/>
+      <path fill="#FFFFFF" d="M128 42l78 40-78 40-78-40 78-40zm0 98l74-38v34l-74 38-74-38v-34l74 38zm0 52l74-38v34l-74 38-74-38v-34l74 38z"/>
+    </symbol>
+
+    <!-- Java -->
+    <symbol id="icon-java" viewBox="0 0 256 256">
+      <rect width="256" height="256" rx="40" fill="#E76F00"/>
+      <path fill="#FFFFFF" d="M110.8 178.6c-27.1 1.5-48.4-5.3-48.4-5.3s10.3 7.8 37.1 10.6c29.1 3.1 63.4 2.1 82.2-8.3 0 0-7.8 5.6-32.9 8.2-31.5 3.2-64.6 2.1-85.4-8.8 0 0 11.2 5.9 44.9 6.5 36.3.7 75.8-3.7 98.7-18.4-23.7 10.6-67 13.9-96.2 15.5zm-5.7-33.8c-18.4.8-33.2-3.8-33.2-3.8s6.8 5.1 25.1 6.8c19.8 1.9 43.3 1.4 56.2-5.4 0 0-5.4 3.7-22.5 5.3-21.5 2.1-44.1 1.4-58.3-5.7 0 0 7.7 3.8 30.7 4.2 24.8.5 51.7-2.4 67.4-12-16.2 6.9-45.7 9.1-65.4 10.6zM140.2 65c9.2 10.5 5.5 22.8-5.7 35.8-10.3 11.9-15.6 23.9-10.7 34.3 0 0-8.9-11.4 3.1-26.6 13.3-16.8 14-26.5 6.4-38.3-2.7-4.2-4.5-9.4-4-15 1.5-15.5 13.9-24.8 13.9-24.8s-13.6 14.2-3 34.6z"/>
+    </symbol>
+
+    <!-- Spring Boot -->
+    <symbol id="icon-springboot" viewBox="0 0 256 256">
+      <rect width="256" height="256" rx="40" fill="#6DB33F"/>
+      <path fill="#FFFFFF" d="M228.8 123.6c0-23.2-5-49.8-15.8-82.3l-8.6-25.5-11.6 24.2c-.6 1.3-1.3 2.6-2.1 3.8C172 26.6 147 16.6 120 16.6c-60.7 0-110 49.3-110 110s49.3 110 110 110 110-49.3 110-110c0-.8 0-1.6-.2-2.4-.6-2.9-1-5.7-1-8.6zM203.6 172.5c-17.1 23.6-47.4 24.9-76 24.3h-37.3c24.3-8.7 38.8-10.8 53.5-18.7 27.8-14.6 55.3-46.6 61-79.9-10.6 32-42.7 59.5-72 70.7-20 7.6-56.2 15.1-56.2 15.1l-1.5-.8c-23.6-11.9-24.3-67.1 20.5-85 19.6-7.8 38.4-3.5 59.6-8.7 22.6-5.5 48.8-23.1 59.4-46 15 35.8 29.3 93.3-10.5 129z"/>
+    </symbol>
+
+    <!-- Kotlin -->
+    <symbol id="icon-kotlin" viewBox="0 0 256 256">
+      <defs>
+        <linearGradient id="kotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#E44857"/>
+          <stop offset="50%" stop-color="#C711E1"/>
+          <stop offset="100%" stop-color="#7F52FF"/>
+        </linearGradient>
+      </defs>
+      <rect width="256" height="256" rx="32" fill="url(#kotGrad)"/>
+      <polygon fill="#FFFFFF" points="220,220 36,220 128,128 220,36 128,128 36,36 220,36"/>
+      <polygon fill="url(#kotGrad)" points="220,220 36,220 128,128 220,36"/>
+    </symbol>
+
+    <!-- Flutter -->
+    <symbol id="icon-flutter" viewBox="0 0 256 256">
+      <circle cx="128" cy="128" r="128" fill="#042B59"/>
+      <path fill="#40D0FD" d="M149.2 38.8L64.2 123.8l38.2 38.2L225.6 38.8h-76.4z"/>
+      <path fill="#02569B" d="M149.2 162l-38.2 38.2 38.2 38.2h76.4l-76.4-76.4z"/>
+      <path fill="#0175C2" d="M102.4 162l38.2-38.2 38.2 38.2-38.2 38.2z"/>
+    </symbol>
+
+    <!-- TypeScript -->
+    <symbol id="icon-typescript" viewBox="0 0 256 256">
+      <rect width="256" height="256" rx="32" fill="#3178C6"/>
+      <path fill="#FFFFFF" d="M117.8 155.6c-4.4 7.2-11.1 12.3-20.1 15.3-9 3-19.4 3.6-31.2 1.8-11.8-1.8-21.6-6.6-29.4-14.4l14.1-23.4c6 5.4 12.6 9.3 19.8 11.7 7.2 2.4 14.1 2.7 20.7.9 6.6-1.8 9.9-5.4 9.9-10.8 0-4.2-1.8-7.5-5.4-9.9-3.6-2.4-9.6-4.8-18-7.2-12-3.6-21-8.7-27-15.3-6-6.6-9-15.6-9-27 0-11.4 4.5-20.7 13.5-27.9 9-7.2 21-10.8 36-10.8 10.8 0 20.4 2.1 28.8 6.3s15 10.2 19.8 18l-15.3 19.8c-7.8-10.8-17.4-15.6-28.8-14.4-4.8.6-8.7 2.4-11.7 5.4-3 3-4.5 6.6-4.5 10.8 0 3.6 1.5 6.6 4.5 9 3 2.4 8.4 4.8 16.2 7.2 12.6 3.6 22.2 8.7 28.8 15.3 6.6 6.6 9.9 15.9 9.9 27.9 0 6.6-2.1 14.1-6.3 22.8zm118.8-59.4h-39.6v101.4h-31.8V96.2h-39.6V68.6h111v27.6z"/>
+    </symbol>
+
+    <!-- Tauri -->
+    <symbol id="icon-tauri" viewBox="0 0 256 256">
+      <circle cx="128" cy="128" r="128" fill="#181B24"/>
+      <circle cx="96" cy="128" r="54" fill="none" stroke="#FFC131" stroke-width="24"/>
+      <circle cx="160" cy="128" r="54" fill="none" stroke="#24C8DB" stroke-width="24"/>
+    </symbol>
+
+    <!-- Rust -->
+    <symbol id="icon-rust" viewBox="0 0 256 256">
+      <circle cx="128" cy="128" r="128" fill="#111111"/>
+      <path fill="#DEA584" d="M128 40a88 88 0 0 0-88 88c0 40.8 27.8 75.1 66 85.3V196c-18.7-4-32.8-20.5-32.8-40.2 0-22.8 18.5-41.3 41.3-41.3h27v17.2h-27c-13.3 0-24.1 10.8-24.1 24.1 0 13.3 10.8 24.1 24.1 24.1h27v17.2h-13.5v16.9c38.2-10.2 66-44.5 66-85.3a88 88 0 0 0-88-88z"/>
+      <text x="144" y="165" font-family="sans-serif" font-size="78" font-weight="900" fill="#FFFFFF">R</text>
+    </symbol>
+
+    <!-- Docker -->
+    <symbol id="icon-docker" viewBox="0 0 256 256">
+      <rect width="256" height="256" rx="40" fill="#2496ED"/>
+      <path fill="#FFFFFF" d="M232 120c-3-20-19-24-19-24-6 0-14 3-18 6 0-12-9-24-27-24-2 0-4 0-6 .5-4-15-18-24-38-24h-1v27h-22V58H79v27H57V58H35v55H13v34c0 36 29 65 65 65h86c47 0 76-26 77-67 0-4 0-9-1-13 4-4 8-9 8-16v-4h-16zM79 112H57V89h22v23zm24 0H81V89h22v23zm24 0h-22V89h22v23zm24 0h-22V89h22v23z"/>
+    </symbol>
+
+    <!-- AI / LLM / Gemini -->
+    <symbol id="icon-ai" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z"/>
+    </symbol>
+
+    <!-- Vector / pgvector -->
+    <symbol id="icon-vector" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h4v4H4zm12 0h4v4h-4zm-6 8h4v4h-4zm-6 8h4v4H4zm12 0h4v4h-4zM6 8v12m12-12v12M8 6h8m-8 12h8"/>
+    </symbol>
+
+    <!-- MCP Protocol -->
+    <symbol id="icon-mcp" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 3v6l6 3l6-3V3M6 21v-6l6-3l6 3v6M6 9l6 3l6-3M6 15l6-3l6 3"/>
+    </symbol>
+  </svg>
+
+  <!-- ==========================================================================
+       HEADER & NAVEGACIÓN
+       ========================================================================== */ -->
+  <header class="site-header">
+    <div class="wrap nav-container">
+      <a class="brand-link" href="#">
+        <div class="brand-avatar-mini">
+          <img src="img/IMG_20240509_173932_867.jpg" alt="Clever Machaca" width="34" height="34" />
+        </div>
+        <div>
+          <span>Clever Machaca</span>
+          <span class="brand-tag">· Full-Stack</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" aria-label="Navegación del portafolio">
+        <a href="#proyectos" class="active">Proyectos</a>
         <a href="#experiencia">Experiencia</a>
         <a href="#skills">Skills</a>
         <a href="#sobre-mi">Sobre mí</a>
-        <a class="cta" href="mailto:mcleverjohann@gmail.com">Contacto</a>
-        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Cambiar tema">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M3 12h1m8-9v1m8 8h1m-9 8v1m-6.4-15.4.7.7m12.1-.7-.7.7m0 11.4.7.7m-12.1-.7-.7.7"></path></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.13 0 .26 0 .39 0a7.5 7.5 0 0 0 7.92 12.45A9 9 0 1 1 12 3z"></path></svg>
-        </button>
       </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" id="theme-toggle" type="button" aria-label="Alternar tema oscuro / claro">
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41m14.14-14.14l-1.41 1.41"></path>
+          </svg>
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3c.13 0 .26 0 .39 0a7.5 7.5 0 0 0 7.92 12.45A9 9 0 1 1 12 3z"></path>
+          </svg>
+        </button>
+
+        <a class="btn-contact-nav" href="mailto:mcleverjohann@gmail.com">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          Contacto
+        </a>
+      </div>
     </div>
   </header>
 
+  <!-- ==========================================================================
+       MAIN CONTENT
+       ========================================================================== -->
   <main id="contenido">
+    <!-- HERO SECTION -->
     <section class="hero wrap">
-      <div class="hero-top">
-        <img class="avatar" src="/img/IMG_20240509_173932_867.jpg" alt="Clever Johann Machaca Asto" width="96" height="96" />
+      <div class="hero-grid">
         <div>
-          <span class="badge"><span class="dot"></span> Disponible para trabajar</span>
-          <div class="note" style="margin-top:8px">Arequipa, Perú · Remoto y presencial</div>
+          <!-- Availability & Location Badges -->
+          <div class="hero-badge-row">
+            <div class="availability-pill">
+              <span class="pulse-dot"></span>
+              Disponible para proyectos &amp; trabajo
+            </div>
+            <div class="location-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Arequipa, Perú · Remoto &amp; Presencial
+            </div>
+          </div>
+
+          <!-- Avatar + Heading -->
+          <div class="hero-profile-header">
+            <div class="hero-avatar-wrapper">
+              <div class="hero-avatar-glow"></div>
+              <img class="hero-avatar" src="img/IMG_20240509_173932_867.jpg" alt="Clever Johann Machaca Asto" width="104" height="104" />
+            </div>
+            <div class="hero-titles">
+              <h1>Clever Johann Machaca Asto</h1>
+              <div class="role-tagline">
+                <span class="gradient-text">Full-Stack Engineer &amp; Backend Specialist</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <p class="hero-bio">
+            <strong>Ingeniero de Sistemas e Informática</strong> enfocado en construir y desplegar productos reales de punta a punta.
+            Diseño arquitecturas backend sólidas y de alto rendimiento (<strong>Java/Spring Boot</strong>, <strong>Kotlin</strong>, <strong>Python/FastAPI</strong>),
+            interfaces reactivas y móviles (<strong>Flutter</strong>, <strong>TypeScript</strong>), e integraciones de <strong>IA aplicada</strong>
+            (RAG con pgvector, LLMs y MCP) en producción con <strong>Docker y CI/CD</strong>.
+          </p>
+
+          <!-- Core Stack Bar -->
+          <div class="quick-stack-bar">
+            <div class="quick-stack-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              Stack Tecnológico Principal
+            </div>
+            <div class="quick-stack-chips">
+              <span class="quick-chip"><svg><use href="#icon-springboot"/></svg> Spring Boot 3</span>
+              <span class="quick-chip"><svg><use href="#icon-java"/></svg> Java 21</span>
+              <span class="quick-chip"><svg><use href="#icon-kotlin"/></svg> Kotlin</span>
+              <span class="quick-chip"><svg><use href="#icon-python"/></svg> Python</span>
+              <span class="quick-chip"><svg><use href="#icon-fastapi"/></svg> FastAPI</span>
+              <span class="quick-chip"><svg><use href="#icon-flutter"/></svg> Flutter</span>
+              <span class="quick-chip"><svg><use href="#icon-typescript"/></svg> TypeScript</span>
+              <span class="quick-chip"><svg><use href="#icon-postgres"/></svg> PostgreSQL</span>
+              <span class="quick-chip"><svg><use href="#icon-vector"/></svg> pgvector</span>
+              <span class="quick-chip"><svg><use href="#icon-docker"/></svg> Docker</span>
+              <span class="quick-chip"><svg><use href="#icon-ai"/></svg> IA / Gemini</span>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:mcleverjohann@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Contáctame
+            </a>
+
+            <button class="btn btn-secondary" id="copy-email-btn" type="button" aria-label="Copiar correo electrónico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copiar correo</span>
+            </button>
+
+            <a class="btn btn-secondary" href="https://github.com/cleverjohann" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              GitHub
+            </a>
+
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/clever-machaca/" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+
+          <!-- Highlights Stat Cards -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">4+</div>
+              <div class="stat-label">Productos construidos &amp; en producción</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">Full-Stack</div>
+              <div class="stat-label">Backend · Frontend Web · Móvil</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">IA Aplicada</div>
+              <div class="stat-label">LLMs, RAG, pgvector &amp; MCP</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">DevOps</div>
+              <div class="stat-label">Docker, CI/CD, Railway &amp; Cloud</div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <h1>Clever Johann Machaca Asto</h1>
-      <p class="subtitle">
-        <strong>Ingeniero de Sistemas e Informática</strong> y <strong>Full-Stack Engineer</strong>.
-        Construyo y llevo a producción productos de punta a punta: backend (Java/Spring Boot, Kotlin, Python/FastAPI),
-        frontend y móvil (Flutter, TypeScript), integraciones de IA, y despliegue con Docker y CI/CD.
-      </p>
+    <!-- ==========================================================================
+         SECCIÓN PROYECTOS
+         ========================================================================== -->
+    <section class="section-block wrap" id="proyectos">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+          Proyectos Destacados
+        </h2>
+        <p class="section-subtitle">
+          Productos reales diseñados, construidos y llevados a producción con tecnologías modernas.
+          Haz clic en cualquier imagen o botón de galería para abrir el <strong>visor interactivo</strong> y regresar en cualquier momento sin perder tu lugar.
+        </p>
+      </div>
 
-      <div class="cta-row">
-        <a class="btn primary" href="mailto:mcleverjohann@gmail.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18h-7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7.5"></path><path d="M3 6l9 6 9-6"></path><path d="M15 18h6"></path><path d="M18 15l3 3-3 3"></path></svg>
-          Contáctame
+      <!-- Filtro Interactivo de Proyectos -->
+      <div class="filter-bar" role="tablist" aria-label="Filtrar proyectos por categoría">
+        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
+          Todos los proyectos <span class="filter-count">4</span>
+        </button>
+        <button class="filter-btn" data-filter="backend" role="tab" aria-selected="false">
+          Backend &amp; SaaS <span class="filter-count">2</span>
+        </button>
+        <button class="filter-btn" data-filter="ai" role="tab" aria-selected="false">
+          IA &amp; Asistentes <span class="filter-count">2</span>
+        </button>
+        <button class="filter-btn" data-filter="cross" role="tab" aria-selected="false">
+          Móvil &amp; Desktop <span class="filter-count">2</span>
+        </button>
+      </div>
+
+      <div class="projects-list">
+        <!-- ==========================================
+             PROYECTO 1: Tutor Socrático IMB
+             ========================================== -->
+        <article class="project-card" data-category="ai cross" id="project-tutor">
+          <!-- Media Column -->
+          <div class="project-media-col">
+            <div class="media-preview-container" data-project-idx="0" data-img-idx="0" tabindex="0" role="button" aria-label="Abrir capturas de Tutor Socrático IMB">
+              <img class="media-preview-img" src="img/projects/tutor-socratico-1.png" alt="Interfaz de conversación del Tutor Socrático IMB" loading="lazy" />
+              <div class="media-zoom-overlay">
+                <div class="media-zoom-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                </div>
+                <span>Click para ver captura completa</span>
+              </div>
+            </div>
+
+            <!-- Miniaturas disponibles para abrir -->
+            <div class="media-thumbs-strip">
+              <button class="thumb-btn" data-project-idx="0" data-img-idx="0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                1. Vista Web (Chat Socrático)
+              </button>
+              <button class="thumb-btn" data-project-idx="0" data-img-idx="1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                2. Vista Móvil (Ruta de razonamiento)
+              </button>
+            </div>
+          </div>
+
+          <!-- Info Column -->
+          <div class="project-info-col">
+            <div>
+              <div class="project-header-top">
+                <div class="project-badges-row">
+                  <span class="status-badge prod">● En producción</span>
+                  <span class="category-badge">IA &amp; Educación</span>
+                  <span class="repo-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Repo privado
+                  </span>
+                </div>
+              </div>
+
+              <h3 class="project-title">Tutor Socrático IMB</h3>
+              <p class="project-subtitle">Asistente conversacional con IA para capacitación corporativa · IMB Institute</p>
+
+              <p class="project-description">
+                Asistente educativo inteligente que guía a estudiantes mediante <strong>preguntas progresivas (método socrático)</strong>
+                en lugar de respuestas directas. Embebido directamente en el aula virtual de IMB mediante el protocolo <strong>LTI 1.3</strong> sobre Moodle,
+                con soporte unificado para Web y Móvil.
+              </p>
+
+              <!-- Tecnologías expuestas con iconos oficiales -->
+              <div class="project-tech-section">
+                <div class="tech-section-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  Tecnologías Utilizadas
+                </div>
+                <ul class="tech-badges-list">
+                  <li class="tech-badge"><svg><use href="#icon-python"/></svg> Python 3.13</li>
+                  <li class="tech-badge"><svg><use href="#icon-fastapi"/></svg> FastAPI</li>
+                  <li class="tech-badge"><svg><use href="#icon-postgres"/></svg> PostgreSQL 16</li>
+                  <li class="tech-badge"><svg><use href="#icon-vector"/></svg> pgvector</li>
+                  <li class="tech-badge"><svg><use href="#icon-redis"/></svg> Redis</li>
+                  <li class="tech-badge"><svg><use href="#icon-ai"/></svg> Google Gemini</li>
+                  <li class="tech-badge"><svg><use href="#icon-flutter"/></svg> Flutter</li>
+                  <li class="tech-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> Moodle LTI 1.3</li>
+                  <li class="tech-badge"><svg><use href="#icon-docker"/></svg> Docker Compose</li>
+                  <li class="tech-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> GitHub Actions</li>
+                </ul>
+              </div>
+
+              <!-- Aspectos Técnicos Clave -->
+              <ul class="project-highlights">
+                <li class="highlight-item">
+                  <strong>Arquitectura RAG:</strong> Embeddings de Gemini y búsqueda semántica en <strong>PostgreSQL + pgvector</strong> sobre materiales del curso.
+                </li>
+                <li class="highlight-item">
+                  <strong>Integración LTI 1.3:</strong> Lanzamiento seguro (OIDC) desde Moodle institucional con sincronización de contexto y progreso.
+                </li>
+                <li class="highlight-item">
+                  <strong>Control de costos y concurrencia:</strong> Rate limiting y cola de peticiones con <strong>Redis</strong> para amortiguar picos de llamadas al LLM.
+                </li>
+                <li class="highlight-item">
+                  <strong>Frontend unificado en Flutter:</strong> Misma base de código para el cliente web institucional y la app móvil de aprendizaje.
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn-gallery" data-project-idx="0" data-img-idx="0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Ver galería (2 capturas)
+              </button>
+              <a class="btn-card-link" href="mailto:mcleverjohann@gmail.com?subject=Solicitud%20de%20Demo%20-%20Tutor%20Socratico%20IMB">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                Solicitar demo privada
+              </a>
+              <span class="confidential-note">Confidencial IMB Institute</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==========================================
+             PROYECTO 2: TYNBIZ Platform
+             ========================================== -->
+        <article class="project-card" data-category="backend" id="project-tynbiz">
+          <!-- Media Column -->
+          <div class="project-media-col">
+            <div class="media-preview-container" data-project-idx="1" data-img-idx="0" tabindex="0" role="button" aria-label="Abrir capturas de TYNBIZ Platform">
+              <img class="media-preview-img" src="img/projects/tynbiz-1.png" alt="Panel de gestión de solicitudes en TYNBIZ Platform" loading="lazy" />
+              <div class="media-zoom-overlay">
+                <div class="media-zoom-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                </div>
+                <span>Click para ver captura completa</span>
+              </div>
+            </div>
+
+            <!-- Miniaturas disponibles para abrir -->
+            <div class="media-thumbs-strip">
+              <button class="thumb-btn" data-project-idx="1" data-img-idx="0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                1. Panel Admin (Solicitudes)
+              </button>
+              <button class="thumb-btn" data-project-idx="1" data-img-idx="1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                2. Dashboard Métricas &amp; Ganancias
+              </button>
+            </div>
+          </div>
+
+          <!-- Info Column -->
+          <div class="project-info-col">
+            <div>
+              <div class="project-header-top">
+                <div class="project-badges-row">
+                  <span class="status-badge dev">● Pre-lanzamiento v1.0</span>
+                  <span class="category-badge">Live Commerce SaaS</span>
+                  <span class="repo-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Repo privado
+                  </span>
+                </div>
+              </div>
+
+              <h3 class="project-title">TYNBIZ Platform</h3>
+              <p class="project-subtitle">Plataforma SaaS de live commerce y videollamadas para e-commerce</p>
+
+              <p class="project-description">
+                Solución empresarial que conecta tiendas virtuales con sus clientes mediante <strong>salas de video y chat en vivo</strong>
+                para asesoría y cierre de compras. Panel administrativo integral con planes de suscripción, pasarelas de pago y sincronización de catálogos.
+              </p>
+
+              <!-- Tecnologías expuestas con iconos oficiales -->
+              <div class="project-tech-section">
+                <div class="tech-section-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  Tecnologías Utilizadas
+                </div>
+                <ul class="tech-badges-list">
+                  <li class="tech-badge"><svg><use href="#icon-java"/></svg> Java 21</li>
+                  <li class="tech-badge"><svg><use href="#icon-springboot"/></svg> Spring Boot 3.5</li>
+                  <li class="tech-badge"><svg><use href="#icon-postgres"/></svg> PostgreSQL 16</li>
+                  <li class="tech-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Flyway Migrations</li>
+                  <li class="tech-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Testcontainers</li>
+                  <li class="tech-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg> Jitsi (JWT Video)</li>
+                  <li class="tech-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Mercado Pago &amp; Niubiz</li>
+                  <li class="tech-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Shopify &amp; WooCommerce</li>
+                  <li class="tech-badge"><svg><use href="#icon-docker"/></svg> Docker</li>
+                  <li class="tech-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg> Cloudflare R2</li>
+                  <li class="tech-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg> Railway Deployment</li>
+                </ul>
+              </div>
+
+              <!-- Aspectos Técnicos Clave -->
+              <ul class="project-highlights">
+                <li class="highlight-item">
+                  <strong>Monolito modular escalable:</strong> Arquitectura por capas con ADRs formales, pruebas con <strong>Testcontainers</strong> y migraciones versionadas con <strong>Flyway</strong>.
+                </li>
+                <li class="highlight-item">
+                  <strong>Seguridad y cifrado:</strong> Autenticación basada en <strong>JWT</strong> y cifrado reversible <strong>AES-256-GCM</strong> para credenciales y tokens de tiendas.
+                </li>
+                <li class="highlight-item">
+                  <strong>Salas de video self-hosted con Jitsi:</strong> Conexión P2P y MCU con tokens JWT firmados dinámicamente según sesión activa.
+                </li>
+                <li class="highlight-item">
+                  <strong>Despliegue continuo:</strong> Pipeline automatizado a <strong>Railway</strong> con almacenamiento de multimedia en <strong>Cloudflare R2</strong>.
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn-gallery" data-project-idx="1" data-img-idx="0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Ver galería (2 capturas)
+              </button>
+              <a class="btn-card-link" href="mailto:mcleverjohann@gmail.com?subject=Consulta%20sobre%20TYNBIZ%20Platform">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                Solicitar demo técnica
+              </a>
+              <span class="confidential-note">SaaS en fase pre-lanzamiento</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==========================================
+             PROYECTO 3: Lumi — Asistente de escritorio
+             ========================================== -->
+        <article class="project-card" data-category="ai cross" id="project-lumi">
+          <!-- Media Column -->
+          <div class="project-media-col">
+            <div class="media-preview-container" data-project-idx="2" data-img-idx="0" tabindex="0" role="button" aria-label="Abrir arquitectura de Lumi">
+              <img class="media-preview-img" src="img/projects/lumi-preview.svg" alt="Arquitectura del overlay de escritorio de Lumi con Tauri 2 y Rust" loading="lazy" />
+              <div class="media-zoom-overlay">
+                <div class="media-zoom-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                </div>
+                <span>Click para ampliar diagrama &amp; UI</span>
+              </div>
+            </div>
+
+            <!-- Miniaturas disponibles para abrir -->
+            <div class="media-thumbs-strip">
+              <button class="thumb-btn" data-project-idx="2" data-img-idx="0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                1. Overlay Flotante &amp; Core en Rust
+              </button>
+            </div>
+          </div>
+
+          <!-- Info Column -->
+          <div class="project-info-col">
+            <div>
+              <div class="project-header-top">
+                <div class="project-badges-row">
+                  <span class="status-badge dev">● En desarrollo</span>
+                  <span class="category-badge">Desktop Nativo &amp; IA</span>
+                  <span class="repo-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    Open Source
+                  </span>
+                </div>
+              </div>
+
+              <h3 class="project-title">Lumi — Asistente educativo de escritorio</h3>
+              <p class="project-subtitle">App de escritorio nativa tipo overlay flotante para acompañar el estudio sin distracciones</p>
+
+              <p class="project-description">
+                Asistente de escritorio <strong>pop-out</strong> ultra ligero: una ventana flotante transparente que acompaña al estudiante
+                en su sesión de estudio sin interrumpir el flujo de trabajo, con sincronización de estado reactivo en tiempo real y mínimo consumo de recursos.
+              </p>
+
+              <!-- Tecnologías expuestas con iconos oficiales -->
+              <div class="project-tech-section">
+                <div class="tech-section-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  Tecnologías Utilizadas
+                </div>
+                <ul class="tech-badges-list">
+                  <li class="tech-badge"><svg><use href="#icon-tauri"/></svg> Tauri 2</li>
+                  <li class="tech-badge"><svg><use href="#icon-rust"/></svg> Rust</li>
+                  <li class="tech-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Vite</li>
+                  <li class="tech-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Convex (Realtime)</li>
+                  <li class="tech-badge"><svg><use href="#icon-typescript"/></svg> TypeScript</li>
+                </ul>
+              </div>
+
+              <!-- Aspectos Técnicos Clave -->
+              <ul class="project-highlights">
+                <li class="highlight-item">
+                  <strong>Consumo mínimo de memoria:</strong> ~30MB de RAM frente a los 250MB+ de Electron gracias a <strong>Rust y Tauri 2</strong>.
+                </li>
+                <li class="highlight-item">
+                  <strong>Backend reactivo con Convex:</strong> Sincronización de notas, consultas e historial de estudio al milisegundo sin sockets pesados.
+                </li>
+                <li class="highlight-item">
+                  <strong>Ventana Always-on-top:</strong> Gestión de ventanas nativas con IPC de Tauri para posicionamiento flexible en pantalla.
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn-gallery" data-project-idx="2" data-img-idx="0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Ver arquitectura &amp; mockup
+              </button>
+              <a class="btn-card-link" href="https://github.com/0wex/michi-teach" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                Ver repositorio en GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==========================================
+             PROYECTO 4: DocuGraph
+             ========================================== -->
+        <article class="project-card" data-category="backend ai" id="project-docugraph">
+          <!-- Media Column -->
+          <div class="project-media-col">
+            <div class="media-preview-container" data-project-idx="3" data-img-idx="0" tabindex="0" role="button" aria-label="Abrir arquitectura de DocuGraph">
+              <img class="media-preview-img" src="img/projects/docugraph-preview.svg" alt="Grafo de dependencias y Servidor MCP en Kotlin de DocuGraph" loading="lazy" />
+              <div class="media-zoom-overlay">
+                <div class="media-zoom-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                </div>
+                <span>Click para ampliar grafo &amp; MCP</span>
+              </div>
+            </div>
+
+            <!-- Miniaturas disponibles para abrir -->
+            <div class="media-thumbs-strip">
+              <button class="thumb-btn" data-project-idx="3" data-img-idx="0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                1. Grafo de Dependencias &amp; Servidor MCP
+              </button>
+            </div>
+          </div>
+
+          <!-- Info Column -->
+          <div class="project-info-col">
+            <div>
+              <div class="project-header-top">
+                <div class="project-badges-row">
+                  <span class="status-badge dev">● En desarrollo</span>
+                  <span class="category-badge">Shipaton 2026 · DevTool</span>
+                  <span class="repo-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Repo privado
+                  </span>
+                </div>
+              </div>
+
+              <h3 class="project-title">DocuGraph</h3>
+              <p class="project-subtitle">Editor de documentación atómica + grafo de dependencias + servidor MCP para agentes de IA</p>
+
+              <p class="project-description">
+                Herramienta multiplataforma para escribir documentación <strong>atómica y viva</strong>, visualizar el <strong>grafo de dependencias</strong>
+                entre especificaciones y exponer ese contexto a agentes de código (Cursor, Windsurf, Claude) mediante un
+                <strong>servidor MCP (Model Context Protocol)</strong> implementado en <strong>Kotlin Multiplatform</strong>.
+              </p>
+
+              <!-- Tecnologías expuestas con iconos oficiales -->
+              <div class="project-tech-section">
+                <div class="tech-section-label">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  Tecnologías Utilizadas
+                </div>
+                <ul class="tech-badges-list">
+                  <li class="tech-badge"><svg><use href="#icon-kotlin"/></svg> Kotlin Multiplatform</li>
+                  <li class="tech-badge"><svg><use href="#icon-mcp"/></svg> Model Context Protocol (MCP)</li>
+                  <li class="tech-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Dependency Graphs (DAG)</li>
+                  <li class="tech-badge"><svg><use href="#icon-ai"/></svg> AI Agent Context Bridge</li>
+                  <li class="tech-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Atomic Markdown Docs</li>
+                </ul>
+              </div>
+
+              <!-- Aspectos Técnicos Clave -->
+              <ul class="project-highlights">
+                <li class="highlight-item">
+                  <strong>Grafo de dependencias interactivo:</strong> Detección automática de inconsistencias, documentos huérfanos y contratos rotos.
+                </li>
+                <li class="highlight-item">
+                  <strong>Servidor MCP en Kotlin:</strong> Expone herramientas como <code>get_doc_context</code> y <code>query_dependencies</code> para alimentar agentes inteligentes.
+                </li>
+                <li class="highlight-item">
+                  <strong>Proyecto para RevenueCat Shipaton 2026:</strong> Diseñado para flujos de trabajo de ingeniería de software asistidos por IA.
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn-gallery" data-project-idx="3" data-img-idx="0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Ver arquitectura &amp; grafo
+              </button>
+              <a class="btn-card-link" href="mailto:mcleverjohann@gmail.com?subject=Consulta%20sobre%20DocuGraph%20-%20Shipaton%202026">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                Solicitar acceso a prueba
+              </a>
+              <span class="confidential-note">Participación Shipaton 2026</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Más repositorios -->
+      <div style="margin-top: 36px; padding: 22px 26px; border-radius: var(--radius-md); background: var(--card-bg); border: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+        <div style="font-size: 0.96rem; color: var(--muted);">
+          Más proyectos de código abierto, microservicios en Java/Kotlin y experimentos en <strong style="color: var(--text);">GitHub</strong>.
+        </div>
+        <a class="btn btn-secondary" href="https://github.com/cleverjohann?tab=repositories" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          Explorar repositorios públicos
         </a>
-        <a class="btn" href="https://github.com/cleverjohann" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          GitHub
-        </a>
-        <a class="btn" href="https://www.linkedin.com/in/clever-machaca/" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-          LinkedIn
-        </a>
-      </div>
-
-      <div class="stats">
-        <div class="stat"><b>4+</b><span>Productos construidos</span></div>
-        <div class="stat"><b>Full-Stack</b><span>Backend · Frontend · Móvil</span></div>
-        <div class="stat"><b>IA aplicada</b><span>LLM, RAG y pgvector</span></div>
-        <div class="stat"><b>En producción</b><span>Docker · CI/CD · Cloud</span></div>
       </div>
     </section>
 
-    <section class="block wrap" id="proyectos">
-      <h2 class="title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8l-4 4 4 4"></path><path d="M17 8l4 4-4 4"></path><path d="M14 4l-4 16"></path></svg>
-        Proyectos
-      </h2>
-      <p class="lede">Productos reales que construí y llevé a producción. Algunos repositorios son privados por acuerdos con clientes/empresa; con gusto comparto acceso o una demo con los organizadores que lo soliciten.</p>
-
-      <div class="projects">
-        <article class="project">
-          <div class="project-body">
-            <div class="project-head">
-              <div>
-                <h3>Tutor Socrático IMB</h3>
-                <p class="project-tag">Asistente educativo con IA para capacitación corporativa · IMB Institute</p>
-              </div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap">
-                <span class="status prod">En producción</span>
-                <span class="status private">Repo privado</span>
-              </div>
-            </div>
-
-            <p class="project-desc">
-              Asistente conversacional que guía al estudiante con <strong>preguntas progresivas (método socrático)</strong> en
-              lugar de dar respuestas directas. Web (MVP) y móvil, embebido en el aula virtual de IMB mediante
-              <strong>LTI 1.3</strong> sobre Moodle.
-            </p>
-
-            <div class="gallery">
-              <a href="/img/projects/tutor-socratico-1.png" target="_blank" rel="noopener">
-                <img src="/img/projects/tutor-socratico-1.png" alt="Interfaz del Tutor Socrático IMB: conversación guiada por etapas" loading="lazy" />
-                <figcaption>Conversación guiada por etapas (web)</figcaption>
-              </a>
-              <a href="/img/projects/tutor-socratico-2.png" target="_blank" rel="noopener">
-                <img src="/img/projects/tutor-socratico-2.png" alt="Vista móvil del Tutor Socrático IMB con ruta de razonamiento" loading="lazy" />
-                <figcaption>Vista móvil y ruta de razonamiento</figcaption>
-              </a>
-            </div>
-
-            <ul class="chips">
-              <li>Python 3.13</li><li>FastAPI</li><li>PostgreSQL 16</li><li>pgvector</li><li>Redis</li>
-              <li>Google Gemini</li><li>Flutter</li><li>Moodle LTI 1.3</li><li>Docker</li><li>GitHub Actions</li>
-            </ul>
-
-            <ul class="highlights">
-              <li><strong>RAG</strong> sobre el contenido del curso con embeddings de Gemini y búsqueda vectorial en pgvector.</li>
-              <li><strong>Integración LTI 1.3</strong> con Moodle institucional para lanzamiento y contexto del estudiante.</li>
-              <li><strong>Rate limiting y cola de eventos con Redis</strong> para controlar costos y picos de uso del LLM.</li>
-              <li><strong>Desplegado en DigitalOcean</strong> con Docker Compose y pipeline de CI/CD en GitHub Actions.</li>
-              <li>Frontend <strong>Flutter</strong> compartido para web (MVP) y app móvil.</li>
-            </ul>
-
-            <div class="project-foot">
-              <span class="note">Repositorio privado por confidencialidad del cliente · demo disponible a solicitud.</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="project-body">
-            <div class="project-head">
-              <div>
-                <h3>TYNBIZ Platform</h3>
-                <p class="project-tag">Plataforma de live commerce (SaaS) para tiendas virtuales</p>
-              </div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap">
-                <span class="status dev">Pre-lanzamiento v1.0</span>
-                <span class="status private">Repo privado</span>
-              </div>
-            </div>
-
-            <p class="project-desc">
-              Plataforma que conecta tiendas virtuales con sus clientes mediante <strong>salas de video, audio y chat en vivo</strong>
-              para generar confianza en compras online. Incluye panel de administración, planes, pagos e integraciones con
-              e-commerce.
-            </p>
-
-            <div class="gallery">
-              <a href="/img/projects/tynbiz-1.png" target="_blank" rel="noopener">
-                <img src="/img/projects/tynbiz-1.png" alt="Panel de administración de TYNBIZ: gestión de solicitudes" loading="lazy" />
-                <figcaption>Panel admin · gestión de solicitudes</figcaption>
-              </a>
-              <a href="/img/projects/tynbiz-2.png" target="_blank" rel="noopener">
-                <img src="/img/projects/tynbiz-2.png" alt="Dashboard de estadísticas de TYNBIZ" loading="lazy" />
-                <figcaption>Dashboard de métricas y ganancias</figcaption>
-              </a>
-            </div>
-
-            <ul class="chips">
-              <li>Java 21</li><li>Spring Boot 3.5</li><li>PostgreSQL 16</li><li>Flyway</li><li>Jitsi (JWT)</li>
-              <li>Mercado Pago</li><li>Niubiz</li><li>Cloudflare R2</li><li>Shopify / WooCommerce</li><li>Docker</li><li>Railway</li>
-            </ul>
-
-            <ul class="highlights">
-              <li><strong>Monolito modular</strong> por capas, con ADRs, pruebas de integración (Testcontainers) y migraciones versionadas con Flyway.</li>
-              <li><strong>Autenticación JWT</strong> y cifrado <strong>AES-256-GCM</strong> de datos sensibles.</li>
-              <li><strong>Salas de video en vivo self-hosted con Jitsi</strong> y tokens JWT firmados.</li>
-              <li><strong>Integración de pagos</strong> (Mercado Pago y Niubiz) y de catálogo con <strong>Shopify y WooCommerce</strong>.</li>
-              <li><strong>Despliegue continuo en Railway</strong> con almacenamiento de archivos en Cloudflare R2.</li>
-            </ul>
-
-            <div class="project-foot">
-              <span class="note">Repositorio privado (producto en pre-lanzamiento) · demo disponible a solicitud.</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="project-body">
-            <div class="project-head">
-              <div>
-                <h3>Lumi — Asistente educativo de escritorio</h3>
-                <p class="project-tag">App de escritorio (overlay) para acompañar el estudio</p>
-              </div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap">
-                <span class="status dev">En desarrollo</span>
-              </div>
-            </div>
-
-            <p class="project-desc">
-              Asistente educativo <strong>pop-out</strong> para escritorio: una ventana flotante que acompaña al estudiante sin
-              interrumpir su trabajo, con backend reactivo y empaquetado nativo multiplataforma.
-            </p>
-
-            <ul class="chips">
-              <li>Tauri 2</li><li>Rust</li><li>Vite</li><li>Convex</li><li>TypeScript</li>
-            </ul>
-
-            <ul class="highlights">
-              <li>App nativa ligera combinando <strong>Rust</strong> y WebView con <strong>Tauri 2</strong>.</li>
-              <li>Backend reactivo en tiempo real con <strong>Convex</strong>.</li>
-              <li>Overlay siempre visible y empaquetado multiplataforma.</li>
-            </ul>
-
-            <div class="project-foot">
-              <a class="btn" href="https://github.com/0wex/michi-teach" target="_blank" rel="noopener noreferrer">Ver repositorio</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project">
-          <div class="project-body">
-            <div class="project-head">
-              <div>
-                <h3>DocuGraph</h3>
-                <p class="project-tag">Editor de documentación atómica + grafo de dependencias + servidor MCP para agentes de IA</p>
-              </div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap">
-                <span class="status dev">En desarrollo</span>
-                <span class="status private">Repo privado</span>
-              </div>
-            </div>
-
-            <p class="project-desc">
-              Herramienta multiplataforma para escribir documentación <strong>atómica</strong>, visualizar el <strong>grafo de
-              dependencias</strong> entre documentos y exponer ese contexto a agentes de programación mediante un
-              <strong>servidor MCP</strong> escrito en Kotlin. Proyecto para <strong>RevenueCat Shipaton 2026</strong>.
-            </p>
-
-            <ul class="chips">
-              <li>Kotlin Multiplatform</li><li>MCP (Model Context Protocol)</li><li>Grafos de dependencias</li><li>Agentes de IA</li>
-            </ul>
-
-            <ul class="highlights">
-              <li><strong>Grafo de dependencias</strong> para mantener documentación consistente y sin huecos.</li>
-              <li><strong>Servidor MCP</strong> que entrega contexto estructurado a agentes de IA durante el desarrollo.</li>
-              <li>Enfoque multiplataforma con <strong>Kotlin</strong>.</li>
-            </ul>
-
-            <div class="project-foot">
-              <span class="note">Repositorio privado durante el desarrollo · disponible a solicitud.</span>
-            </div>
-          </div>
-        </article>
+    <!-- ==========================================================================
+         SECCIÓN EXPERIENCIA & FORMACIÓN
+         ========================================================================== -->
+    <section class="section-block wrap" id="experiencia">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+          Experiencia &amp; Formación
+        </h2>
+        <p class="section-subtitle">Trayectoria laboral en desarrollo de software y base académica sólida.</p>
       </div>
 
-      <p class="lede" style="margin-top:24px">
-        Más evidencia pública de código en
-        <a href="https://github.com/cleverjohann?tab=repositories" target="_blank" rel="noopener noreferrer">github.com/cleverjohann</a>:
-        microservicios y backends en Java/Kotlin, apps Flutter, así como experimentos de IA y automatización.
-      </p>
-    </section>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-node"></span>
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-title">Backend Developer</h3>
+              <div class="timeline-company">Startup (Confidencial)</div>
+            </div>
+            <span class="timeline-period">Actualmente</span>
+          </div>
+          <p class="timeline-desc">
+            Desarrollo e implementación de microservicios y APIs REST escalables con <strong>Java</strong> y <strong>Spring Boot</strong>.
+            Trabajo activo en equipo bajo metodologías ágiles, aplicación rigurosa de buenas prácticas de código limpio,
+            pruebas automatizadas y arquitectura modular preparada para alta concurrencia.
+          </p>
+        </div>
 
-    <section class="block wrap" id="experiencia">
-      <h2 class="title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M3 13a20 20 0 0 0 18 0"></path></svg>
-        Experiencia
-      </h2>
-      <ul class="timeline">
-        <li>
-          <h3>Backend Developer</h3>
-          <div class="where">Startup (confidencial)</div>
-          <div class="when">Actualmente</div>
-          <p>Desarrollo de APIs y microservicios con <strong>Spring Boot</strong> y <strong>Java</strong>. Trabajo en equipo con metodologías ágiles, buenas prácticas y arquitectura de software escalable.</p>
-        </li>
-        <li>
-          <h3>Ingeniería de Sistemas e Informática</h3>
-          <div class="where">Formación académica · Perú</div>
-          <div class="when">Egresado</div>
-          <p>Formación en desarrollo de software, bases de datos, arquitectura de sistemas y gestión de proyectos, con enfoque en backend y aplicaciones empresariales.</p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="block wrap" id="skills">
-      <h2 class="title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"></path><path d="M3 13l9 5 9-5"></path></svg>
-        Skills
-      </h2>
-      <div class="skills">
-        <div class="skill-group">
-          <h3>Backend</h3>
-          <ul><li>Java</li><li>Spring Boot</li><li>Kotlin</li><li>Python</li><li>FastAPI</li><li>NestJS</li><li>REST APIs</li></ul>
-        </div>
-        <div class="skill-group">
-          <h3>Frontend y Móvil</h3>
-          <ul><li>TypeScript</li><li>Next.js</li><li>React</li><li>Flutter / Dart</li><li>Tauri 2</li><li>Rust</li></ul>
-        </div>
-        <div class="skill-group">
-          <h3>Datos e Infra</h3>
-          <ul><li>PostgreSQL</li><li>pgvector</li><li>Redis</li><li>Flyway</li><li>Docker</li><li>GitHub Actions</li><li>Railway / DigitalOcean</li></ul>
-        </div>
-        <div class="skill-group">
-          <h3>IA y otros</h3>
-          <ul><li>LLM / Gemini</li><li>RAG</li><li>Embeddings</li><li>MCP</li><li>Convex</li><li>Jitsi</li><li>Integraciones de pago</li></ul>
+        <div class="timeline-item">
+          <span class="timeline-node"></span>
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-title">Ingeniería de Sistemas e Informática</h3>
+              <div class="timeline-company">Formación Académica Superior · Perú</div>
+            </div>
+            <span class="timeline-period">Egresado</span>
+          </div>
+          <p class="timeline-desc">
+            Formación integral universitaria en desarrollo de software, modelado y optimización de bases de datos relacionales,
+            redes, arquitectura de sistemas y gestión ágil de proyectos. Especialización continua en tecnologías backend,
+            aplicaciones empresariales e inteligencia artificial aplicada.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="block wrap about" id="sobre-mi">
-      <h2 class="title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0 4 4 0 0 0-8 0"></path><path d="M6 21v-2a4 4 0 0 1 4-4h4"></path><path d="M15 19l2 2 4-4"></path></svg>
-        Sobre mí
-      </h2>
-      <p>
-        Soy <strong>Clever Johann Machaca Asto</strong>, Ingeniero de Sistemas e Informática de Arequipa, Perú. Me enfoco en
-        <strong>construir y llevar productos reales a producción</strong>, cubriendo backend, frontend y móvil, e integrando IA
-        cuando aporta valor.
-      </p>
-      <p>
-        Disfruto el diseño de APIs robustas y escalables, la arquitectura de software y los detalles de calidad (pruebas,
-        migraciones, observabilidad y despliegue). También me motiva el trabajo en equipo, la colaboración y el aprendizaje
-        continuo, con especial interés en herramientas para desarrolladores y agentes de IA.
-      </p>
-      <p class="note" style="margin-top:18px">
-        Actualmente en búsqueda de nuevas oportunidades y participando en retos y hackathones para seguir creciendo.
-      </p>
+    <!-- ==========================================================================
+         SECCIÓN SKILLS
+         ========================================================================== -->
+    <section class="section-block wrap" id="skills">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          Habilidades &amp; Competencias
+        </h2>
+        <p class="section-subtitle">Ecosistema técnico dominado en backend, frontend, datos, infraestructura e IA.</p>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Backend -->
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            <h3 class="skill-card-title">Backend &amp; APIs</h3>
+          </div>
+          <ul class="skill-pills-list">
+            <li class="tech-badge"><svg><use href="#icon-java"/></svg> Java 21</li>
+            <li class="tech-badge"><svg><use href="#icon-springboot"/></svg> Spring Boot 3</li>
+            <li class="tech-badge"><svg><use href="#icon-kotlin"/></svg> Kotlin</li>
+            <li class="tech-badge"><svg><use href="#icon-python"/></svg> Python 3</li>
+            <li class="tech-badge"><svg><use href="#icon-fastapi"/></svg> FastAPI</li>
+            <li class="tech-badge"><svg viewBox="0 0 24 24" fill="#E0234E"><circle cx="12" cy="12" r="10"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="12" font-weight="bold">N</text></svg> NestJS</li>
+            <li class="tech-badge">APIs RESTful</li>
+            <li class="tech-badge">Arquitectura Modular</li>
+          </ul>
+        </div>
+
+        <!-- Frontend & Móvil -->
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            <h3 class="skill-card-title">Frontend &amp; Móvil</h3>
+          </div>
+          <ul class="skill-pills-list">
+            <li class="tech-badge"><svg><use href="#icon-typescript"/></svg> TypeScript</li>
+            <li class="tech-badge"><svg><use href="#icon-flutter"/></svg> Flutter / Dart</li>
+            <li class="tech-badge"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg> Next.js</li>
+            <li class="tech-badge"><svg viewBox="0 0 24 24" fill="none" stroke="#00D8FF" stroke-width="2"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="9" ry="4"/><ellipse cx="12" cy="12" rx="4" ry="9"/></svg> React</li>
+            <li class="tech-badge"><svg><use href="#icon-tauri"/></svg> Tauri 2</li>
+            <li class="tech-badge"><svg><use href="#icon-rust"/></svg> Rust</li>
+            <li class="tech-badge">HTML5 / CSS3</li>
+          </ul>
+        </div>
+
+        <!-- Bases de datos & Infra -->
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+            <h3 class="skill-card-title">Datos &amp; DevOps</h3>
+          </div>
+          <ul class="skill-pills-list">
+            <li class="tech-badge"><svg><use href="#icon-postgres"/></svg> PostgreSQL</li>
+            <li class="tech-badge"><svg><use href="#icon-vector"/></svg> pgvector</li>
+            <li class="tech-badge"><svg><use href="#icon-redis"/></svg> Redis</li>
+            <li class="tech-badge"><svg><use href="#icon-docker"/></svg> Docker Compose</li>
+            <li class="tech-badge">Flyway Migrations</li>
+            <li class="tech-badge">GitHub Actions CI/CD</li>
+            <li class="tech-badge">Railway / DigitalOcean</li>
+          </ul>
+        </div>
+
+        <!-- IA & Especiales -->
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <h3 class="skill-card-title">IA &amp; Integraciones</h3>
+          </div>
+          <ul class="skill-pills-list">
+            <li class="tech-badge"><svg><use href="#icon-ai"/></svg> Google Gemini</li>
+            <li class="tech-badge">RAG &amp; Embeddings</li>
+            <li class="tech-badge"><svg><use href="#icon-mcp"/></svg> Model Context Protocol (MCP)</li>
+            <li class="tech-badge">Convex Realtime</li>
+            <li class="tech-badge">Jitsi WebRTC (JWT)</li>
+            <li class="tech-badge">Moodle LTI 1.3</li>
+            <li class="tech-badge">Mercado Pago / Niubiz</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN SOBRE MÍ
+         ========================================================================== -->
+    <section class="section-block wrap" id="sobre-mi">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          Sobre mí
+        </h2>
+        <p class="section-subtitle">Perfil profesional, enfoque de ingeniería y compromiso técnico.</p>
+      </div>
+
+      <div class="about-card">
+        <div class="about-content">
+          <p>
+            Mi nombre es <strong>Clever Johann Machaca Asto</strong>, soy <strong>Ingeniero de Sistemas e Informática</strong> originario de Arequipa, Perú.
+            Mi principal pasión profesional es <strong>construir y llevar productos reales a producción</strong>, asumiendo la responsabilidad del ciclo de vida completo:
+            desde el modelado del dominio y la persistencia de datos, hasta la experiencia de usuario y el despliegue en la nube.
+          </p>
+          <p>
+            Tengo un enfoque riguroso en el diseño de <strong>APIs robustas, limpias y resilientes</strong>, aplicando buenas prácticas como arquitectura modular,
+            migraciones controladas, pruebas automatizadas y patrones de integración seguros. Integro tecnologías de <strong>Inteligencia Artificial (LLMs, RAG, pgvector y servidores MCP)</strong>
+            cuando aportan una solución práctica y medible a las necesidades del usuario final.
+          </p>
+
+          <div class="about-highlights-box">
+            <p style="margin: 0; font-size: 0.96rem; color: var(--text);">
+              🚀 <strong>Enfoque actual:</strong> Abierto a oportunidades como <em>Full-Stack Engineer</em> o <em>Backend Developer</em> en proyectos remotos o presenciales,
+              así como a colaborar en iniciativas innovadoras y hackathones internacionales.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="site">
-    <div class="wrap foot-inner">
-      <span>© <span id="year"></span> Clever Johann Machaca Asto · Arequipa, Perú</span>
-      <div class="foot-links">
+  <!-- ==========================================================================
+       MODAL LIGHTBOX INTERACTIVO (SOLUCIÓN DEFINITIVA A "NO PUEDO REGRESAR ATRÁS")
+       ========================================================================== -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <!-- Header Fijo con botón Regresar Gigante y Claro -->
+    <div class="lightbox-header">
+      <button class="lightbox-back-btn" id="lb-back-btn" type="button" aria-label="Regresar al portafolio">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Regresar al portafolio</span>
+      </button>
+
+      <div class="lightbox-title-area">
+        <div class="lightbox-project-name" id="lb-project-name">Proyecto</div>
+        <div class="lightbox-counter" id="lb-counter">1 de 2</div>
+      </div>
+
+      <button class="lightbox-close-btn" id="lb-close-btn" type="button" aria-label="Cerrar visor de capturas">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Escenario de la Imagen -->
+    <div class="lightbox-stage" id="lb-stage">
+      <button class="lightbox-nav-btn prev" id="lb-prev-btn" type="button" aria-label="Imagen anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="lightbox-img-wrapper">
+        <img class="lightbox-img" id="lb-main-img" src="" alt="" />
+        <div class="lightbox-caption-bar" id="lb-caption">Descripción de la captura</div>
+      </div>
+
+      <button class="lightbox-nav-btn next" id="lb-next-btn" type="button" aria-label="Siguiente imagen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Tira inferior de miniaturas -->
+    <div class="lightbox-bottom-bar">
+      <div class="lightbox-thumbnails" id="lb-thumbs-container"></div>
+      <div class="lightbox-hint">
+        <span>💡 Presiona <kbd>Esc</kbd> o el botón atrás del navegador para volver</span>
+        <span>↔ Usa flechas del teclado para navegar</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       TOAST FEEDBACK (COPIAR CORREO)
+       ========================================================================== -->
+  <div class="toast-notification" id="toast">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toast-text">¡Correo copiado al portapapeles!</span>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        © <span id="current-year"></span> Clever Johann Machaca Asto · Arequipa, Perú
+      </div>
+      <div class="footer-links">
         <a href="mailto:mcleverjohann@gmail.com">mcleverjohann@gmail.com</a>
         <a href="https://github.com/cleverjohann" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/clever-machaca/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -584,40 +2616,411 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      var root = document.documentElement;
-      var stored = null;
-      try { stored = localStorage.getItem("theme"); } catch (e) { }
-      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      var isDark = stored ? stored === "dark" : prefersDark;
-      if (isDark) root.classList.add("dark");
-      document.getElementById("theme-toggle").addEventListener("click", function () {
-        var nowDark = !root.classList.contains("dark");
-        root.classList.toggle("dark", nowDark);
-        try { localStorage.setItem("theme", nowDark ? "dark" : "light"); } catch (e) { }
-      });
-      document.getElementById("year").textContent = new Date().getFullYear();
-    })();
-  </script>
-
+  <!-- ==========================================================================
+       DATOS ESTRUCTURADOS SCHEMA.ORG PARA SEO
+       ========================================================================== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Clever Johann Machaca Asto",
     "jobTitle": "Full-Stack Engineer",
-    "description": "Ingeniero de Sistemas e Informática. Full-Stack Engineer especializado en backend (Java/Spring Boot, Kotlin, Python/FastAPI), frontend y móvil (Flutter, TypeScript) e IA aplicada.",
+    "description": "Ingeniero de Sistemas e Informática. Full-Stack Engineer especializado en backend con Java/Spring Boot, Kotlin, Python/FastAPI; interfaces en Flutter y TypeScript; y soluciones de IA aplicada.",
     "url": "https://cleverjohann.github.io/",
     "image": "https://cleverjohann.github.io/img/IMG_20240509_173932_867.jpg",
     "email": "mailto:mcleverjohann@gmail.com",
-    "address": { "@type": "PostalAddress", "addressLocality": "Arequipa", "addressCountry": "PE" },
-    "knowsAbout": ["Java", "Spring Boot", "Kotlin", "Python", "FastAPI", "Flutter", "TypeScript", "Next.js", "NestJS", "Rust", "Tauri", "PostgreSQL", "pgvector", "Redis", "Docker", "GitHub Actions", "LLM", "RAG", "Model Context Protocol"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Arequipa",
+      "addressCountry": "PE"
+    },
+    "knowsAbout": [
+      "Java", "Spring Boot", "Kotlin", "Python", "FastAPI", "Flutter",
+      "TypeScript", "PostgreSQL", "pgvector", "Redis", "Docker", "LLMs", "RAG", "Model Context Protocol"
+    ],
     "sameAs": [
       "https://github.com/cleverjohann",
       "https://www.linkedin.com/in/clever-machaca/"
     ]
   }
+  </script>
+
+  <!-- ==========================================================================
+       SCRIPTS INTERACTIVOS (LIGHTBOX, FILTROS, HISTORIAL DEL NAVEGADOR & TEMAS)
+       ========================================================================== -->
+  <script>
+    (function () {
+      "use strict";
+
+      // ------------------------------------------------------------------------
+      // 1. GESTIÓN DEL TEMA (OSCURO / CLARO) CON PERSISTENCIA
+      // ------------------------------------------------------------------------
+      const root = document.documentElement;
+      const themeToggleBtn = document.getElementById("theme-toggle");
+
+      function getInitialTheme() {
+        try {
+          const stored = localStorage.getItem("theme");
+          if (stored === "dark" || stored === "light") return stored;
+        } catch (e) { }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+
+      function setTheme(theme) {
+        if (theme === "dark") {
+          root.classList.add("dark");
+        } else {
+          root.classList.remove("dark");
+        }
+        try {
+          localStorage.setItem("theme", theme);
+        } catch (e) { }
+      }
+
+      setTheme(getInitialTheme());
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", function () {
+          const isDark = root.classList.contains("dark");
+          setTheme(isDark ? "light" : "dark");
+        });
+      }
+
+      // Año en footer
+      const yearEl = document.getElementById("current-year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // ------------------------------------------------------------------------
+      // 2. TOAST NOTIFICACIÓN (COPIAR CORREO)
+      // ------------------------------------------------------------------------
+      const copyEmailBtn = document.getElementById("copy-email-btn");
+      const toastEl = document.getElementById("toast");
+      let toastTimer = null;
+
+      function showToast(message) {
+        if (!toastEl) return;
+        document.getElementById("toast-text").textContent = message;
+        toastEl.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {
+          toastEl.classList.remove("show");
+        }, 3200);
+      }
+
+      if (copyEmailBtn) {
+        copyEmailBtn.addEventListener("click", function () {
+          const email = "mcleverjohann@gmail.com";
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(email).then(function () {
+              showToast("✓ Correo copiado: " + email);
+            }).catch(function () {
+              window.location.href = "mailto:" + email;
+            });
+          } else {
+            window.location.href = "mailto:" + email;
+          }
+        });
+      }
+
+      // ------------------------------------------------------------------------
+      // 3. BASE DE DATOS DE CAPTURAS DE PROYECTOS PARA EL LIGHTBOX
+      // ------------------------------------------------------------------------
+      const projectsData = [
+        {
+          id: "tutor",
+          title: "Tutor Socrático IMB",
+          images: [
+            {
+              src: "img/projects/tutor-socratico-1.png",
+              caption: "Interfaz web del Tutor Socrático: Guía progresiva por etapas sin entregar respuestas directas",
+              thumbLabel: "1. Vista Web"
+            },
+            {
+              src: "img/projects/tutor-socratico-2.png",
+              caption: "Vista móvil y ruta de razonamiento: Visualización de hitos cognitivos del estudiante",
+              thumbLabel: "2. Vista Móvil"
+            }
+          ]
+        },
+        {
+          id: "tynbiz",
+          title: "TYNBIZ Platform",
+          images: [
+            {
+              src: "img/projects/tynbiz-1.png",
+              caption: "Panel de administración SaaS: Gestión en tiempo real de solicitudes de tiendas e integraciones",
+              thumbLabel: "1. Panel Solicitudes"
+            },
+            {
+              src: "img/projects/tynbiz-2.png",
+              caption: "Dashboard de métricas & ganancias: Estadísticas agregadas de tiendas y usuarios activos",
+              thumbLabel: "2. Dashboard Métricas"
+            }
+          ]
+        },
+        {
+          id: "lumi",
+          title: "Lumi — Asistente de escritorio",
+          images: [
+            {
+              src: "img/projects/lumi-preview.svg",
+              caption: "Arquitectura nativa de Lumi: Overlay de escritorio en Rust (Tauri 2) con Convex en tiempo real",
+              thumbLabel: "1. Arquitectura & UI"
+            }
+          ]
+        },
+        {
+          id: "docugraph",
+          title: "DocuGraph (Shipaton 2026)",
+          images: [
+            {
+              src: "img/projects/docugraph-preview.svg",
+              caption: "Visualizador del grafo de dependencias y Servidor MCP en Kotlin Multiplatform para agentes de IA",
+              thumbLabel: "1. Grafo & Servidor MCP"
+            }
+          ]
+        }
+      ];
+
+      // ------------------------------------------------------------------------
+      // 4. MOTOR DEL LIGHTBOX CON SOPORTE COMPLETO DE "REGRESAR ATRÁS"
+      // ------------------------------------------------------------------------
+      const lightboxModal = document.getElementById("lightbox-modal");
+      const lbBackBtn = document.getElementById("lb-back-btn");
+      const lbCloseBtn = document.getElementById("lb-close-btn");
+      const lbPrevBtn = document.getElementById("lb-prev-btn");
+      const lbNextBtn = document.getElementById("lb-next-btn");
+      const lbMainImg = document.getElementById("lb-main-img");
+      const lbProjectName = document.getElementById("lb-project-name");
+      const lbCounter = document.getElementById("lb-counter");
+      const lbCaption = document.getElementById("lb-caption");
+      const lbThumbsContainer = document.getElementById("lb-thumbs-container");
+      const lbStage = document.getElementById("lb-stage");
+
+      let currentProjectIdx = 0;
+      let currentImageIdx = 0;
+      let isLightboxOpen = false;
+
+      function renderLightboxImage() {
+        const project = projectsData[currentProjectIdx];
+        if (!project) return;
+        const imgData = project.images[currentImageIdx];
+        if (!imgData) return;
+
+        lbProjectName.textContent = project.title;
+        lbCounter.textContent = (currentImageIdx + 1) + " de " + project.images.length;
+        lbCaption.textContent = imgData.caption;
+
+        // Carga suave
+        lbMainImg.style.opacity = "0.2";
+        lbMainImg.src = imgData.src;
+        lbMainImg.alt = imgData.caption;
+        lbMainImg.onload = function () {
+          lbMainImg.style.opacity = "1";
+        };
+
+        // Renderizar miniaturas del proyecto
+        lbThumbsContainer.innerHTML = "";
+        project.images.forEach(function (img, idx) {
+          const thumb = document.createElement("button");
+          thumb.type = "button";
+          thumb.className = "lb-thumb" + (idx === currentImageIdx ? " active" : "");
+          thumb.setAttribute("aria-label", "Ver captura " + (idx + 1));
+          thumb.innerHTML = '<img src="' + img.src + '" alt="" />';
+          thumb.addEventListener("click", function () {
+            currentImageIdx = idx;
+            renderLightboxImage();
+          });
+          lbThumbsContainer.appendChild(thumb);
+        });
+
+        // Visibilidad de flechas si solo hay 1 imagen
+        if (project.images.length <= 1) {
+          lbPrevBtn.style.display = "none";
+          lbNextBtn.style.display = "none";
+        } else {
+          lbPrevBtn.style.display = "flex";
+          lbNextBtn.style.display = "flex";
+        }
+      }
+
+      function openLightbox(projectIdx, imageIdx) {
+        currentProjectIdx = projectIdx;
+        currentImageIdx = imageIdx || 0;
+        renderLightboxImage();
+
+        lightboxModal.classList.add("active");
+        lightboxModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        isLightboxOpen = true;
+
+        // PUSH STATE AL HISTORIAL DEL NAVEGADOR:
+        // Esto soluciona de raíz el problema: si el usuario presiona el botón "Atrás" de su
+        // teléfono o de su navegador, el evento popstate cerrará el modal de forma limpia
+        // regresando a la página sin recargarla ni dejarlo atrapado en una imagen aislada.
+        try {
+          history.pushState({ lightboxOpen: true, p: projectIdx, i: imageIdx }, "", "#ver-captura");
+        } catch (e) { }
+
+        // Foco accesible al botón de regresar
+        setTimeout(function () {
+          if (lbBackBtn) lbBackBtn.focus();
+        }, 100);
+      }
+
+      function closeLightbox(triggerHistoryBack) {
+        if (!isLightboxOpen) return;
+        isLightboxOpen = false;
+        lightboxModal.classList.remove("active");
+        lightboxModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+
+        if (triggerHistoryBack !== false && window.location.hash === "#ver-captura") {
+          try {
+            history.back();
+          } catch (e) { }
+        }
+      }
+
+      function prevLightboxImage() {
+        const project = projectsData[currentProjectIdx];
+        if (!project || project.images.length <= 1) return;
+        currentImageIdx = (currentImageIdx - 1 + project.images.length) % project.images.length;
+        renderLightboxImage();
+      }
+
+      function nextLightboxImage() {
+        const project = projectsData[currentProjectIdx];
+        if (!project || project.images.length <= 1) return;
+        currentImageIdx = (currentImageIdx + 1) % project.images.length;
+        renderLightboxImage();
+      }
+
+      // Event Listeners de Botones del Lightbox
+      if (lbBackBtn) {
+        lbBackBtn.addEventListener("click", function () {
+          closeLightbox(true);
+        });
+      }
+
+      if (lbCloseBtn) {
+        lbCloseBtn.addEventListener("click", function () {
+          closeLightbox(true);
+        });
+      }
+
+      if (lbPrevBtn) lbPrevBtn.addEventListener("click", prevLightboxImage);
+      if (lbNextBtn) lbNextBtn.addEventListener("click", nextLightboxImage);
+
+      // Cierre al hacer click en el fondo oscuro fuera de la imagen
+      if (lbStage) {
+        lbStage.addEventListener("click", function (e) {
+          if (e.target === lbStage) {
+            closeLightbox(true);
+          }
+        });
+      }
+
+      // Manejo de PopState del Navegador (Botón Atrás de celular / desktop)
+      window.addEventListener("popstate", function (e) {
+        if (isLightboxOpen) {
+          // El usuario presionó Atrás en el navegador o teléfono: cerrar el modal
+          closeLightbox(false);
+        }
+      });
+
+      // Atajos de teclado: Escape para volver, Flechas para cambiar
+      window.addEventListener("keydown", function (e) {
+        if (!isLightboxOpen) return;
+        if (e.key === "Escape") {
+          closeLightbox(true);
+        } else if (e.key === "ArrowLeft") {
+          prevLightboxImage();
+        } else if (e.key === "ArrowRight") {
+          nextLightboxImage();
+        }
+      });
+
+      // Conectar todos los elementos clickeables de las cards de proyectos
+      function attachLightboxTriggers() {
+        const triggers = document.querySelectorAll("[data-project-idx]");
+        triggers.forEach(function (el) {
+          el.addEventListener("click", function (e) {
+            e.preventDefault();
+            const pIdx = parseInt(el.getAttribute("data-project-idx"), 10);
+            const iIdx = parseInt(el.getAttribute("data-img-idx") || "0", 10);
+            openLightbox(pIdx, iIdx);
+          });
+          el.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              const pIdx = parseInt(el.getAttribute("data-project-idx"), 10);
+              const iIdx = parseInt(el.getAttribute("data-img-idx") || "0", 10);
+              openLightbox(pIdx, iIdx);
+            }
+          });
+        });
+      }
+
+      attachLightboxTriggers();
+
+      // ------------------------------------------------------------------------
+      // 5. FILTRO DE PROYECTOS INTERACTIVO
+      // ------------------------------------------------------------------------
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const projectCards = document.querySelectorAll(".project-card");
+
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          filterBtns.forEach(function (b) {
+            b.classList.remove("active");
+            b.setAttribute("aria-selected", "false");
+          });
+          btn.classList.add("active");
+          btn.setAttribute("aria-selected", "true");
+
+          const filter = btn.getAttribute("data-filter");
+
+          projectCards.forEach(function (card) {
+            const categories = card.getAttribute("data-category") || "";
+            if (filter === "all" || categories.includes(filter)) {
+              card.style.display = "";
+              card.style.opacity = "1";
+              card.style.transform = "translateY(0)";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // ------------------------------------------------------------------------
+      // 6. NAVEGACIÓN SUAVE Y ESTADO ACTIVO EN HEADER
+      // ------------------------------------------------------------------------
+      const navLinks = document.querySelectorAll(".nav-menu a");
+      const sections = document.querySelectorAll("section[id]");
+
+      window.addEventListener("scroll", function () {
+        let current = "";
+        const scrollPosition = window.pageYOffset + 120;
+
+        sections.forEach(function (sec) {
+          const top = sec.offsetTop;
+          const height = sec.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            current = sec.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach(function (link) {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+    })();
   </script>
 </body>
 

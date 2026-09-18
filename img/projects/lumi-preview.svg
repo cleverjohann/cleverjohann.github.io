@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1021"/>
+      <stop offset="50%" stop-color="#141a2e"/>
+      <stop offset="100%" stop-color="#0e1324"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="rustGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1c243a" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#151b2d" stop-opacity="0.95"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" fill="url(#bgGrad)"/>
+  <rect width="800" height="480" fill="url(#grid)"/>
+
+  <!-- Ambient glow -->
+  <circle cx="680" cy="100" r="180" fill="#8b5cf6" opacity="0.15" filter="blur(40px)"/>
+  <circle cx="160" cy="380" r="160" fill="#f97316" opacity="0.12" filter="blur(40px)"/>
+
+  <!-- Mockup Desktop Window Frame -->
+  <g transform="translate(40, 30)" filter="url(#shadow)">
+    <!-- Main Window Background -->
+    <rect width="720" height="420" rx="16" fill="#101524" stroke="#2a344f" stroke-width="1.5"/>
+
+    <!-- Window Header / Title Bar -->
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 704 0 A 16 16 0 0 1 720 16 L 720 44 L 0 44 Z" fill="#161c2e"/>
+    <circle cx="24" cy="22" r="5.5" fill="#ef4444"/>
+    <circle cx="42" cy="22" r="5.5" fill="#f59e0b"/>
+    <circle cx="60" cy="22" r="5.5" fill="#10b981"/>
+
+    <text x="360" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#94a3b8" text-anchor="middle">Lumi — Asistente de Estudio (Overlay de Escritorio)</text>
+
+    <!-- App Badges in Header -->
+    <rect x="580" y="11" width="60" height="22" rx="6" fill="#ea580c" fill-opacity="0.2" stroke="#ea580c" stroke-width="1"/>
+    <text x="610" y="26" font-family="sans-serif" font-size="10" font-weight="700" fill="#fdba74" text-anchor="middle">Tauri 2</text>
+
+    <rect x="648" y="11" width="56" height="22" rx="6" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="676" y="26" font-family="sans-serif" font-size="10" font-weight="700" fill="#c4b5fd" text-anchor="middle">Rust</text>
+
+    <!-- Workspace View Simulation -->
+    <!-- Background Code Editor Lines behind overlay -->
+    <g opacity="0.25">
+      <rect x="24" y="60" width="180" height="12" rx="4" fill="#38bdf8"/>
+      <rect x="24" y="82" width="260" height="10" rx="3" fill="#64748b"/>
+      <rect x="40" y="102" width="220" height="10" rx="3" fill="#94a3b8"/>
+      <rect x="60" y="122" width="160" height="10" rx="3" fill="#a855f7"/>
+      <rect x="60" y="142" width="240" height="10" rx="3" fill="#64748b"/>
+      <rect x="40" y="162" width="190" height="10" rx="3" fill="#22c55e"/>
+      <rect x="24" y="182" width="80" height="10" rx="3" fill="#64748b"/>
+
+      <rect x="24" y="212" width="240" height="12" rx="4" fill="#38bdf8"/>
+      <rect x="40" y="234" width="280" height="10" rx="3" fill="#94a3b8"/>
+      <rect x="40" y="254" width="200" height="10" rx="3" fill="#f59e0b"/>
+      <rect x="24" y="274" width="110" height="10" rx="3" fill="#64748b"/>
+    </g>
+
+    <!-- Lumi Floating Pop-out Window (The Star of the Show!) -->
+    <g transform="translate(320, 60)" filter="url(#shadow)">
+      <rect width="375" height="336" rx="14" fill="#141b2d" stroke="#3b82f6" stroke-width="1.8"/>
+      <!-- Glow border top -->
+      <rect width="375" height="42" rx="14" fill="#1b243b"/>
+      <rect y="32" width="375" height="10" fill="#1b243b"/>
+
+      <!-- Assistant Avatar & Status -->
+      <circle cx="30" cy="21" r="12" fill="url(#purpleGrad)"/>
+      <!-- Small spark / star icon -->
+      <path d="M30 14 L32 19 L37 21 L32 23 L30 28 L28 23 L23 21 L28 19 Z" fill="#ffffff"/>
+
+      <text x="50" y="22" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#ffffff">Lumi Companion</text>
+      <circle cx="150" cy="18" r="3.5" fill="#22c55e"/>
+      <text x="160" y="22" font-family="sans-serif" font-size="10" font-weight="500" fill="#86efac">En vivo (Convex)</text>
+
+      <!-- Pin Icon / Always on Top indicator -->
+      <rect x="330" y="10" width="32" height="22" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="346" y="24" font-family="sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">📌</text>
+
+      <!-- Chat / Assistant Content Body -->
+      <!-- Message 1: User -->
+      <g transform="translate(18, 55)">
+        <rect width="339" height="48" rx="10" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+        <text x="12" y="20" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" fill="#93c5fd">Tú</text>
+        <text x="12" y="36" font-family="-apple-system, sans-serif" font-size="11" fill="#e2e8f0">¿Por qué usar Tauri 2 en vez de Electron para un overlay?</text>
+      </g>
+
+      <!-- Message 2: Lumi AI Response with Highlighted Points -->
+      <g transform="translate(18, 114)">
+        <rect width="339" height="142" rx="10" fill="#172239" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.5"/>
+        <text x="12" y="20" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#c084fc">Lumi</text>
+        <text x="12" y="38" font-family="-apple-system, sans-serif" font-size="11" fill="#f1f5f9">• <tspan font-weight="600" fill="#60a5fa">Consumo mínimo de RAM:</tspan> ~30MB vs 250MB+ de Electron.</text>
+        <text x="12" y="58" font-family="-apple-system, sans-serif" font-size="11" fill="#f1f5f9">• <tspan font-weight="600" fill="#f472b6">Seguridad nativa en Rust</tspan> para llamadas al sistema.</text>
+        <text x="12" y="78" font-family="-apple-system, sans-serif" font-size="11" fill="#f1f5f9">• <tspan font-weight="600" fill="#34d399">Ventana flotante non-intrusive</tspan> transparente.</text>
+        <text x="12" y="98" font-family="-apple-system, sans-serif" font-size="11" fill="#f1f5f9">• <tspan font-weight="600" fill="#fbbf24">Sincronización en tiempo real</tspan> con Convex.</text>
+
+        <!-- Quick actions -->
+        <rect x="12" y="112" width="92" height="20" rx="5" fill="#1e293b" stroke="#38bdf8" stroke-width="0.8"/>
+        <text x="58" y="125" font-family="sans-serif" font-size="9.5" font-weight="600" fill="#38bdf8" text-anchor="middle">Copiar resumen</text>
+
+        <rect x="110" y="112" width="92" height="20" rx="5" fill="#1e293b" stroke="#a855f7" stroke-width="0.8"/>
+        <text x="156" y="125" font-family="sans-serif" font-size="9.5" font-weight="600" fill="#c084fc" text-anchor="middle">Profundizar</text>
+      </g>
+
+      <!-- Input Bar Simulation -->
+      <g transform="translate(18, 270)">
+        <rect width="339" height="42" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="26" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">Haz una pregunta a tu tutor socrático...</text>
+        <circle cx="316" cy="21" r="14" fill="#3b82f6"/>
+        <path d="M312 17 L321 21 L312 25 Z" fill="#ffffff"/>
+      </g>
+    </g>
+
+    <!-- Side card for Tech Specs -->
+    <g transform="translate(24, 280)">
+      <rect width="270" height="116" rx="10" fill="#161e31" stroke="#252f4a" stroke-width="1"/>
+      <text x="14" y="24" font-family="-apple-system, sans-serif" font-size="11" font-weight="700" fill="#f8fafc">Arquitectura del Asistente</text>
+
+      <g transform="translate(14, 38)">
+        <rect width="70" height="20" rx="4" fill="#f97316" fill-opacity="0.15" stroke="#f97316" stroke-width="0.8"/>
+        <text x="35" y="13" font-family="sans-serif" font-size="9.5" font-weight="600" fill="#fb923c" text-anchor="middle">Rust Core</text>
+
+        <rect x="76" y="0" width="76" height="20" rx="4" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="0.8"/>
+        <text x="114" y="13" font-family="sans-serif" font-size="9.5" font-weight="600" fill="#60a5fa" text-anchor="middle">Tauri 2 IPC</text>
+
+        <rect x="158" y="0" width="84" height="20" rx="4" fill="#eab308" fill-opacity="0.15" stroke="#eab308" stroke-width="0.8"/>
+        <text x="200" y="13" font-family="sans-serif" font-size="9.5" font-weight="600" fill="#fde047" text-anchor="middle">Convex Sync</text>
+      </g>
+
+      <text x="14" y="80" font-family="sans-serif" font-size="10" fill="#94a3b8">Overlays nativos con aceleración por GPU y</text>
+      <text x="14" y="96" font-family="sans-serif" font-size="10" fill="#94a3b8">consumo mínimo para acompañar sin lag.</text>
+    </g>
+  </g>
+</svg>

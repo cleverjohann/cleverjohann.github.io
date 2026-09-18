@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgDocu" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d1a"/>
+      <stop offset="50%" stop-color="#11182c"/>
+      <stop offset="100%" stop-color="#0c1122"/>
+    </linearGradient>
+    <linearGradient id="kotlinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e44857"/>
+      <stop offset="50%" stop-color="#c711e1"/>
+      <stop offset="100%" stop-color="#7f52ff"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <filter id="shadowD" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    <pattern id="gridD" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" fill="url(#bgDocu)"/>
+  <rect width="800" height="480" fill="url(#gridD)"/>
+
+  <!-- Ambient glow -->
+  <circle cx="200" cy="120" r="180" fill="#7f52ff" opacity="0.12" filter="blur(45px)"/>
+  <circle cx="640" cy="360" r="170" fill="#06b6d4" opacity="0.14" filter="blur(45px)"/>
+
+  <!-- Window Frame -->
+  <g transform="translate(40, 30)" filter="url(#shadowD)">
+    <rect width="720" height="420" rx="16" fill="#0e1424" stroke="#25314c" stroke-width="1.5"/>
+
+    <!-- Header bar -->
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 704 0 A 16 16 0 0 1 720 16 L 720 44 L 0 44 Z" fill="#151d32"/>
+    <circle cx="24" cy="22" r="5.5" fill="#ef4444"/>
+    <circle cx="42" cy="22" r="5.5" fill="#f59e0b"/>
+    <circle cx="60" cy="22" r="5.5" fill="#10b981"/>
+
+    <text x="360" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#94a3b8" text-anchor="middle">DocuGraph — Editor de Documentación Atómica &amp; Grafo MCP</text>
+
+    <rect x="550" y="11" width="76" height="22" rx="6" fill="url(#kotlinGrad)" fill-opacity="0.25" stroke="#a855f7" stroke-width="1"/>
+    <text x="588" y="26" font-family="sans-serif" font-size="10" font-weight="700" fill="#e9d5ff" text-anchor="middle">Kotlin MP</text>
+
+    <rect x="632" y="11" width="72" height="22" rx="6" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="1"/>
+    <text x="668" y="26" font-family="sans-serif" font-size="10" font-weight="700" fill="#a5f3fc" text-anchor="middle">MCP Active</text>
+
+    <!-- Content Workspace: 3 Columns -->
+    <!-- Col 1: Atomic Docs Explorer -->
+    <g transform="translate(16, 56)">
+      <rect width="168" height="348" rx="10" fill="#12192c" stroke="#222d46" stroke-width="1"/>
+      <text x="14" y="24" font-family="sans-serif" font-size="11" font-weight="700" fill="#cbd5e1">Documentos Atómicos</text>
+
+      <!-- Doc Items -->
+      <g transform="translate(10, 40)">
+        <!-- Item 1 Active -->
+        <rect width="148" height="28" rx="6" fill="#1e2b48" stroke="#3b82f6" stroke-width="1"/>
+        <text x="10" y="18" font-family="sans-serif" font-size="10.5" font-weight="600" fill="#60a5fa">📄 auth_architecture.md</text>
+
+        <!-- Item 2 -->
+        <rect y="34" width="148" height="28" rx="6" fill="#151e33"/>
+        <text x="10" y="52" font-family="sans-serif" font-size="10.5" fill="#94a3b8">📄 jwt_rotation.md</text>
+
+        <!-- Item 3 -->
+        <rect y="68" width="148" height="28" rx="6" fill="#151e33"/>
+        <text x="10" y="86" font-family="sans-serif" font-size="10.5" fill="#94a3b8">📄 db_migrations.md</text>
+
+        <!-- Item 4 -->
+        <rect y="102" width="148" height="28" rx="6" fill="#151e33"/>
+        <text x="10" y="120" font-family="sans-serif" font-size="10.5" fill="#94a3b8">📄 event_bus_api.md</text>
+
+        <!-- Item 5 -->
+        <rect y="136" width="148" height="28" rx="6" fill="#151e33"/>
+        <text x="10" y="154" font-family="sans-serif" font-size="10.5" fill="#94a3b8">📄 pgvector_rag.md</text>
+
+        <!-- Item 6 -->
+        <rect y="170" width="148" height="28" rx="6" fill="#151e33"/>
+        <text x="10" y="188" font-family="sans-serif" font-size="10.5" fill="#94a3b8">📄 rate_limit_redis.md</text>
+      </g>
+
+      <!-- Shipaton Banner -->
+      <g transform="translate(10, 260)">
+        <rect width="148" height="74" rx="8" fill="#1a1d36" stroke="#4f46e5" stroke-width="0.8"/>
+        <text x="12" y="20" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#a5b4fc">Shipaton 2026</text>
+        <text x="12" y="36" font-family="sans-serif" font-size="9" fill="#cbd5e1">Herramienta para</text>
+        <text x="12" y="50" font-family="sans-serif" font-size="9" fill="#cbd5e1">desarrollo ágil con IA</text>
+        <circle cx="128" cy="48" r="8" fill="#7f52ff"/>
+        <text x="128" y="52" font-family="sans-serif" font-size="9" fill="#fff" text-anchor="middle">✓</text>
+      </g>
+    </g>
+
+    <!-- Col 2: Dependency Graph Canvas -->
+    <g transform="translate(196, 56)">
+      <rect width="320" height="348" rx="10" fill="#0f1628" stroke="#222d46" stroke-width="1"/>
+      <text x="14" y="24" font-family="sans-serif" font-size="11" font-weight="700" fill="#cbd5e1">Grafo de Dependencias Activo</text>
+
+      <!-- Graph Connection Edges -->
+      <g stroke="#3b82f6" stroke-width="1.8" stroke-dasharray="3,3" opacity="0.7">
+        <line x1="80" y1="110" x2="160" y2="70"/>
+        <line x1="160" y1="70" x2="240" y2="120"/>
+        <line x1="80" y1="110" x2="140" y2="190"/>
+        <line x1="140" y1="190" x2="240" y2="120"/>
+        <line x1="140" y1="190" x2="190" y2="280"/>
+        <line x1="80" y1="110" x2="80" y2="250"/>
+        <line x1="80" y1="250" x2="190" y2="280"/>
+      </g>
+
+      <!-- Graph Nodes -->
+      <!-- Node 1: Root Auth -->
+      <g transform="translate(45, 95)">
+        <rect width="70" height="32" rx="8" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1.5"/>
+        <text x="35" y="20" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#dbeafe" text-anchor="middle">Auth</text>
+      </g>
+
+      <!-- Node 2: JWT -->
+      <g transform="translate(125, 52)">
+        <rect width="70" height="32" rx="8" fill="#581c87" stroke="#c084fc" stroke-width="1.5"/>
+        <text x="35" y="20" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#f3e8ff" text-anchor="middle">JWT Spec</text>
+      </g>
+
+      <!-- Node 3: Session -->
+      <g transform="translate(205, 104)">
+        <rect width="75" height="32" rx="8" fill="#14532d" stroke="#4ade80" stroke-width="1.5"/>
+        <text x="37" y="20" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#dcfce7" text-anchor="middle">Session Store</text>
+      </g>
+
+      <!-- Node 4: DB Migration -->
+      <g transform="translate(105, 174)">
+        <rect width="75" height="32" rx="8" fill="#701a75" stroke="#f472b6" stroke-width="1.5"/>
+        <text x="37" y="20" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#fce7f3" text-anchor="middle">DB Schema</text>
+      </g>
+
+      <!-- Node 5: Redis -->
+      <g transform="translate(45, 234)">
+        <rect width="70" height="32" rx="8" fill="#7f1d1d" stroke="#f87171" stroke-width="1.5"/>
+        <text x="35" y="20" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#fee2e2" text-anchor="middle">Redis Cache</text>
+      </g>
+
+      <!-- Node 6: MCP Agent Node -->
+      <g transform="translate(155, 264)">
+        <rect width="90" height="36" rx="8" fill="#083344" stroke="#22d3ee" stroke-width="2"/>
+        <text x="45" y="22" font-family="sans-serif" font-size="10" font-weight="800" fill="#cffafe" text-anchor="middle">MCP Context</text>
+      </g>
+
+      <text x="160" y="330" font-family="sans-serif" font-size="9.5" fill="#64748b" text-anchor="middle">Grafo dirigido acíclico (DAG) sin inconsistencias</text>
+    </g>
+
+    <!-- Col 3: MCP Agent Server Status -->
+    <g transform="translate(528, 56)">
+      <rect width="176" height="348" rx="10" fill="#12192c" stroke="#222d46" stroke-width="1"/>
+      <text x="14" y="24" font-family="sans-serif" font-size="11" font-weight="700" fill="#cbd5e1">Servidor MCP (Kotlin)</text>
+
+      <g transform="translate(12, 38)">
+        <!-- Status Box -->
+        <rect width="152" height="54" rx="6" fill="#0b1322" stroke="#0284c7" stroke-width="0.8"/>
+        <circle cx="16" cy="18" r="4" fill="#22c55e"/>
+        <text x="26" y="22" font-family="sans-serif" font-size="10" font-weight="700" fill="#e0f2fe">MCP Bridge Activo</text>
+        <text x="16" y="42" font-family="monospace" font-size="9" fill="#38bdf8">std-io / port 8080</text>
+      </g>
+
+      <!-- Agents Listening -->
+      <text x="14" y="114" font-family="sans-serif" font-size="10" font-weight="600" fill="#94a3b8">Agentes Conectados:</text>
+
+      <g transform="translate(12, 122)">
+        <rect width="152" height="24" rx="5" fill="#18233c"/>
+        <text x="10" y="16" font-family="sans-serif" font-size="9.5" fill="#e2e8f0">⚡ Cursor / Windsurf</text>
+
+        <rect y="28" width="152" height="24" rx="5" fill="#18233c"/>
+        <text x="10" y="44" font-family="sans-serif" font-size="9.5" fill="#e2e8f0">⚡ Antigravity / Gemini</text>
+
+        <rect y="56" width="152" height="24" rx="5" fill="#18233c"/>
+        <text x="10" y="72" font-family="sans-serif" font-size="9.5" fill="#e2e8f0">⚡ Claude Desktop</text>
+      </g>
+
+      <!-- Protocol Capabilities -->
+      <text x="14" y="224" font-family="sans-serif" font-size="10" font-weight="600" fill="#94a3b8">Herramientas MCP:</text>
+      <g transform="translate(12, 232)">
+        <rect width="152" height="22" rx="4" fill="#172554"/>
+        <text x="8" y="15" font-family="monospace" font-size="8.5" fill="#93c5fd">get_graph_context()</text>
+
+        <rect y="26" width="152" height="22" rx="4" fill="#172554"/>
+        <text x="8" y="41" font-family="monospace" font-size="8.5" fill="#93c5fd">find_orphans()</text>
+
+        <rect y="52" width="152" height="22" rx="4" fill="#172554"/>
+        <text x="8" y="67" font-family="monospace" font-size="8.5" fill="#93c5fd">audit_dependencies()</text>
+      </g>
+    </g>
+  </g>
+</svg>
