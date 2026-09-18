@@ -3,581 +3,622 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clever Johann Machaca Asto | Full-Stack Engineer (Backend, Frontend y Móvil)</title>
   <meta name="description"
-    content="Clever Johann Machaca Asto - Ingeniero de Sistemas especializado en desarrollo backend con Spring Boot, NestJS y Kotlin. Disponible para proyectos y oportunidades laborales." />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="generator" content="Astro v4.4.5" />
-  <meta name="keywords" content="Backend Developer, Spring Boot, NestJS, Kotlin, Next.js, Java, TypeScript, Perú" />
+    content="Clever Johann Machaca Asto — Ingeniero de Sistemas e Informática de Arequipa, Perú. Full-Stack Engineer: backend con Java/Spring Boot, Kotlin y Python/FastAPI; frontend y móvil con Flutter y TypeScript. Construyo y llevo productos reales a producción, incluyendo sistemas con IA." />
+  <meta name="keywords"
+    content="Clever Johann Machaca Asto, Full-Stack Engineer, Backend Developer, Frontend, Móvil, Java, Spring Boot, Kotlin, Python, FastAPI, Flutter, TypeScript, Next.js, NestJS, Rust, Tauri, PostgreSQL, pgvector, Docker, IA, LLM, Perú, Arequipa" />
   <meta name="author" content="Clever Johann Machaca Asto" />
-  <title>Clever Johann Machaca Asto | Backend Developer - Spring Boot, NestJS & Kotlin</title>
-  <meta name="astro-view-transitions-enabled" content="true" />
-  <meta name="astro-view-transitions-fallback" content="animate" />
-  <link rel="stylesheet" href="components.H8dfmDt1.css" />
-  <script type="module" src="hoisted.7AawcmZT.js"></script>
+  <link rel="canonical" href="https://cleverjohann.github.io/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Clever Johann Machaca Asto | Full-Stack Engineer" />
+  <meta property="og:description"
+    content="Full-Stack Engineer de Arequipa, Perú. Backend (Java/Spring Boot, Kotlin, Python/FastAPI), frontend y móvil (Flutter, TypeScript) e IA aplicada. Productos reales en producción." />
+  <meta property="og:url" content="https://cleverjohann.github.io/" />
+  <meta property="og:image" content="https://cleverjohann.github.io/img/projects/tutor-socratico-1.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root {
+      --bg: #f7f8fc;
+      --bg-soft: #ffffff;
+      --text: #1b2130;
+      --muted: #5b6475;
+      --border: #e4e7f0;
+      --card: #ffffff;
+      --accent: #5b6cff;
+      --accent-2: #8b5cf6;
+      --accent-soft: #eef0ff;
+      --chip-bg: #f1f3fa;
+      --chip-text: #3c445c;
+      --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 12px 32px rgba(16, 24, 40, .08);
+      --shadow-hover: 0 2px 4px rgba(16, 24, 40, .06), 0 20px 48px rgba(16, 24, 40, .14);
+      --radius: 18px;
+      --max: 1080px;
+    }
+
+    html.dark {
+      --bg: #0b0f1a;
+      --bg-soft: #111728;
+      --text: #eef1f8;
+      --muted: #a3adc2;
+      --border: #232c42;
+      --card: #121a2c;
+      --accent: #8b9bff;
+      --accent-2: #b794f6;
+      --accent-soft: #1a2340;
+      --chip-bg: #1b2338;
+      --chip-text: #cdd6ea;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 16px 40px rgba(0, 0, 0, .45);
+      --shadow-hover: 0 2px 6px rgba(0, 0, 0, .5), 0 24px 56px rgba(0, 0, 0, .55);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(60% 50% at 50% -10%, rgba(91, 108, 255, .18), transparent 70%),
+        radial-gradient(40% 40% at 90% 0%, rgba(139, 92, 246, .14), transparent 70%);
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header.site {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+
+    .brand { font-weight: 700; letter-spacing: -.01em; font-size: 1rem; }
+    .brand span { color: var(--muted); font-weight: 500; }
+
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 500;
+      padding: 7px 11px;
+      border-radius: 999px;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--chip-bg); text-decoration: none; }
+
+    .icon-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--card); color: var(--text);
+      cursor: pointer; transition: transform .15s ease, background .15s ease;
+    }
+    .icon-btn:hover { transform: scale(1.06); }
+    .icon-btn svg { width: 18px; height: 18px; }
+    html.dark .icon-sun { display: none; }
+    html:not(.dark) .icon-moon { display: none; }
+
+    @media (max-width: 720px) {
+      .nav-links a:not(.cta) { display: none; }
+      .nav-links a.cta { display: inline-flex; }
+    }
+
+    /* Hero */
+    .hero { padding: 64px 0 24px; }
+
+    .hero-top { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+    .avatar {
+      width: 96px; height: 96px; border-radius: 24px; object-fit: cover; object-position: 50% 25%;
+      box-shadow: var(--shadow); border: 3px solid var(--card);
+    }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px; border-radius: 999px;
+      font-size: .82rem; font-weight: 600;
+      background: var(--accent-soft); color: var(--accent);
+      border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+    }
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: #22c55e; box-shadow: 0 0 0 4px rgba(34, 197, 94, .18); }
+
+    h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; letter-spacing: -.03em; margin: 26px 0 0; }
+    .subtitle { color: var(--muted); font-size: 1.12rem; margin: 14px 0 0; max-width: 62ch; }
+    .subtitle strong { color: var(--text); }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 10px 18px; border-radius: 999px;
+      font-size: .95rem; font-weight: 600;
+      border: 1px solid var(--border); background: var(--card); color: var(--text);
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); text-decoration: none; }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; border-color: transparent; }
+    .btn svg { width: 17px; height: 17px; }
+
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-top: 34px; }
+    .stat { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
+    .stat b { display: block; font-size: 1.4rem; letter-spacing: -.02em; }
+    .stat span { color: var(--muted); font-size: .85rem; }
+
+    /* Sections */
+    section.block { padding: 46px 0 8px; }
+    h2.title {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 1.6rem; letter-spacing: -.02em; margin: 0 0 22px;
+    }
+    h2.title svg { width: 26px; height: 26px; color: var(--accent); }
+    .lede { color: var(--muted); margin: -8px 0 26px; max-width: 70ch; }
+
+    /* Project cards */
+    .projects { display: flex; flex-direction: column; gap: 26px; }
+
+    article.project {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    article.project:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+
+    .project-body { padding: 26px; }
+
+    .project-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .project-head h3 { margin: 0; font-size: 1.35rem; letter-spacing: -.02em; }
+    .project-tag { color: var(--muted); font-size: .9rem; margin: 2px 0 0; }
+
+    .status {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+      padding: 5px 11px; border-radius: 999px; white-space: nowrap;
+    }
+    .status.prod { background: rgba(34, 197, 94, .14); color: #16a34a; }
+    .status.dev { background: rgba(245, 158, 11, .16); color: #d97706; }
+    .status.private { background: var(--chip-bg); color: var(--chip-text); }
+    html.dark .status.prod { color: #4ade80; }
+    html.dark .status.dev { color: #fbbf24; }
+
+    .project-desc { color: var(--muted); margin: 14px 0 0; }
+    .project-desc strong { color: var(--text); }
+
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 18px; }
+    .gallery a { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: var(--chip-bg); }
+    .gallery img { display: block; width: 100%; height: 190px; object-fit: cover; object-position: top; transition: transform .35s ease; }
+    .gallery a:hover img { transform: scale(1.03); }
+    .gallery figcaption { font-size: .78rem; color: var(--muted); padding: 7px 10px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; padding: 0; list-style: none; }
+    .chips li {
+      font-size: .8rem; font-weight: 600;
+      padding: 5px 11px; border-radius: 999px;
+      background: var(--chip-bg); color: var(--chip-text);
+      border: 1px solid var(--border);
+    }
+
+    .highlights { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .highlights li { position: relative; padding-left: 24px; color: var(--muted); font-size: .95rem; }
+    .highlights li::before {
+      content: ""; position: absolute; left: 6px; top: .62em;
+      width: 7px; height: 7px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+    .highlights li strong { color: var(--text); }
+
+    .project-foot { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 22px; padding-top: 18px; border-top: 1px dashed var(--border); font-size: .88rem; }
+    .note { color: var(--muted); }
+
+    /* Timeline */
+    .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+    .timeline li { position: relative; padding: 18px 20px 18px 26px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; }
+    .timeline li::before { content: ""; position: absolute; left: 0; top: 18px; bottom: 18px; width: 4px; border-radius: 999px; background: linear-gradient(180deg, var(--accent), var(--accent-2)); }
+    .timeline h3 { margin: 0; font-size: 1.05rem; }
+    .timeline .where { color: var(--muted); font-weight: 600; font-size: .92rem; }
+    .timeline .when { color: var(--muted); font-size: .82rem; }
+    .timeline p { margin: 8px 0 0; color: var(--muted); font-size: .95rem; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .skill-group { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+    .skill-group h3 { margin: 0 0 10px; font-size: .95rem; color: var(--text); }
+    .skill-group ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-group li { font-size: .8rem; padding: 4px 10px; border-radius: 999px; background: var(--chip-bg); color: var(--chip-text); border: 1px solid var(--border); }
+
+    /* About */
+    .about p { color: var(--muted); max-width: 74ch; }
+    .about strong { color: var(--text); }
+
+    footer.site { margin-top: 60px; border-top: 1px solid var(--border); padding: 34px 0 50px; }
+    .foot-inner { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; color: var(--muted); font-size: .9rem; }
+    .foot-links { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .skip { position: absolute; left: -9999px; }
+    .skip:focus { left: 12px; top: 12px; z-index: 100; background: var(--card); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); }
+  </style>
 </head>
 
-<body class="relative text-black dark:text-white">
-  <div
-    class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
-  </div>
-  <header class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2" data-astro-cid-3ef6ksr2>
-    <nav class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
-      data-astro-cid-3ef6ksr2>
-      <a class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
-        aria-label="experiencia" href="/#experiencia" data-astro-cid-3ef6ksr2>
-        Experiencia </a><a class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
-        aria-label="proyectos" href="/#proyectos" data-astro-cid-3ef6ksr2>
-        Proyectos </a><a class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
-        aria-label="sobre-mi" href="/#sobre-mi" data-astro-cid-3ef6ksr2>
-        Sobre mí </a><a class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
-        aria-label="contacto" href="mailto:mcleverjohann@gmail.com" data-astro-cid-3ef6ksr2>
-        Contacto
-      </a>
-      <div class="relative ml-1 mr-1" data-astro-cid-x3pjskd3>
-        <button id="theme-toggle-btn" class="appearance-none border-none flex hover:scale-125 transition"
-          data-astro-cid-x3pjskd3>
-          <span class="sr-only" data-astro-cid-x3pjskd3>Elige el tema</span>
-          <svg id="light" class="theme-toggle-icon size-5 transition-all" data-astro-cid-x3pjskd3 width="24" height="24"
-            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-            <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
-          </svg>
-          <svg id="dark" class="theme-toggle-icon absolute size-5 transition-all" data-astro-cid-x3pjskd3 width="24"
-            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
-          </svg>
-          <svg id="system" class="theme-toggle-icon absolute size-5 transition-all" data-astro-cid-x3pjskd3 width="24"
-            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z"></path>
-            <path d="M7 20h10"></path>
-            <path d="M9 16v4"></path>
-            <path d="M15 16v4"></path>
-          </svg>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="site">
+    <div class="wrap nav">
+      <div class="brand">Clever Machaca <span>· Full-Stack Engineer</span></div>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#skills">Skills</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a class="cta" href="mailto:mcleverjohann@gmail.com">Contacto</a>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Cambiar tema">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M3 12h1m8-9v1m8 8h1m-9 8v1m-6.4-15.4.7.7m12.1-.7-.7.7m0 11.4.7.7m-12.1-.7-.7.7"></path></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.13 0 .26 0 .39 0a7.5 7.5 0 0 0 7.92 12.45A9 9 0 1 1 12 3z"></path></svg>
         </button>
-        <div id="themes-menu"
-          class="absolute hidden scale-80 top-8 right-0 text-sm p-1 min-w-[8rem] rounded-md border border-gray-100 bg-white/90 dark:bg-gray-900/90 dark:border-gray-500/20 shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
-          data-astro-cid-x3pjskd3>
-          <ul data-astro-cid-x3pjskd3>
-            <li
-              class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm"
-              data-astro-cid-x3pjskd3>
-              Light
-            </li>
-            <li
-              class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm"
-              data-astro-cid-x3pjskd3>
-              Dark
-            </li>
-            <li
-              class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm"
-              data-astro-cid-x3pjskd3>
-              System
-            </li>
-          </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero wrap">
+      <div class="hero-top">
+        <img class="avatar" src="/img/IMG_20240509_173932_867.jpg" alt="Clever Johann Machaca Asto" width="96" height="96" />
+        <div>
+          <span class="badge"><span class="dot"></span> Disponible para trabajar</span>
+          <div class="note" style="margin-top:8px">Arequipa, Perú · Remoto y presencial</div>
         </div>
       </div>
-      <script>
-        let remove = null;
-        const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
-        const themesMenu = document.getElementById("themes-menu");
 
-        const getThemePreference = () => {
-          if (typeof localStorage !== "undefined") {
-            return localStorage.getItem("theme") ?? "system";
-          }
+      <h1>Clever Johann Machaca Asto</h1>
+      <p class="subtitle">
+        <strong>Ingeniero de Sistemas e Informática</strong> y <strong>Full-Stack Engineer</strong>.
+        Construyo y llevo a producción productos de punta a punta: backend (Java/Spring Boot, Kotlin, Python/FastAPI),
+        frontend y móvil (Flutter, TypeScript), integraciones de IA, y despliegue con Docker y CI/CD.
+      </p>
 
-          return window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
-        };
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:mcleverjohann@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18h-7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7.5"></path><path d="M3 6l9 6 9-6"></path><path d="M15 18h6"></path><path d="M18 15l3 3-3 3"></path></svg>
+          Contáctame
+        </a>
+        <a class="btn" href="https://github.com/cleverjohann" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/clever-machaca/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn
+        </a>
+      </div>
 
-        const updateIcon = (themePreference) => {
-          document
-            .querySelectorAll(".theme-toggle-icon")
-            .forEach((element) => {
-              element.style.scale =
-                element.id === themePreference ? "1" : "0";
-            });
-        };
-
-        const updateTheme = () => {
-          if (remove != null) {
-            remove();
-          }
-          matchMedia.addEventListener("change", updateTheme);
-          remove = () => {
-            matchMedia.removeEventListener("change", updateTheme);
-          };
-
-          const themePreference = getThemePreference();
-          const isDark =
-            themePreference === "dark" ||
-            (themePreference === "system" && matchMedia.matches);
-
-          updateIcon(themePreference);
-          document.documentElement.classList[isDark ? "add" : "remove"](
-            "dark"
-          );
-        };
-
-        updateTheme();
-
-        document.addEventListener("click", () =>
-          themesMenu.classList.remove("open")
-        );
-
-        document
-          .getElementById("theme-toggle-btn")
-          .addEventListener("click", (e) => {
-            e.stopPropagation();
-            const isClosed = !themesMenu.classList.contains("open");
-            themesMenu.classList[isClosed ? "add" : "remove"]("open");
-          });
-
-        document
-          .querySelectorAll(".themes-menu-option")
-          .forEach((element) => {
-            element.addEventListener("click", (e) => {
-              localStorage.setItem(
-                "theme",
-                e.target.innerText.toLowerCase().trim()
-              );
-              updateTheme();
-            });
-          });
-      </script>
-    </nav>
-  </header>
-  <main class="px-4">
-    <section class="section py-16 md:py-36 scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl">
-      <div class="max-w-xl">
-        <div class="flex gap-4 mb-4">
-          <img class="rounded-full shadow-lg size-16" src="/img/IMG_20240509_173932_867.jpg" alt="Clever Machaca" style="
-                object-fit: cover;
-                object-position: center;
-                width: 150px;
-                height: 200px;
-              " />
-          <a href="https://www.linkedin.com/in/clever-machaca/" target="_blank" rel="noopener"
-            class="flex items-center transition md:justify-center md:hover:scale-105">
-            <div class="flex items-center">
-              <span class="relative inline-flex overflow-hidden rounded-full p-[1px]">
-                <span
-                  class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]"></span>
-                <div
-                  class="inline-flex items-center justify-center w-full px-3 py-1 text-sm text-green-800 bg-green-100 rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap">
-                  Disponible para trabajar
-                </div>
-              </span>
-            </div>
-          </a>
-        </div>
-        <h1 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
-          Hey, soy Clever Johann
-        </h1>
-        <p
-          class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300">
-          <strong>Ingeniero de Sistemas e Informática</strong> de Perú 🇵🇪.
-          Especializado en <strong>desarrollo backend</strong> con Spring Boot, NestJS y Kotlin.
-          Actualmente trabajando en una startup y desarrollando proyectos fullstack con Next.js.
-        </p>
-        <nav class="flex flex-wrap gap-4 mt-8">
-          <a href="mailto:mcleverjohann@gmail.com" target="_blank" rel="noopener noreferrer" role="link"
-            class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 group max-w-fit hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black">
-            <svg class="size-4" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail-forward"
-              width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M12 18h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v7.5"></path>
-              <path d="M3 6l9 6l9 -6"></path>
-              <path d="M15 18h6"></path>
-              <path d="M18 15l3 3l-3 3"></path>
-            </svg>
-            Contáctame
-          </a>
-          <a href="https://github.com/cleverjohann" target="_blank" rel="noopener noreferrer" role="link"
-            class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 group max-w-fit hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black">
-            <svg class="size-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-              <path
-                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-            </svg>
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/clever-machaca/" target="_blank" rel="noopener noreferrer" role="link"
-            class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 group max-w-fit hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black">
-            <svg class="size-4" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin"
-              width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
-              <path d="M8 11l0 5"></path>
-              <path d="M8 8l0 .01"></path>
-              <path d="M12 16l0 -5"></path>
-              <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
-            </svg>
-            LinkedIn
-          </a>
-        </nav>
+      <div class="stats">
+        <div class="stat"><b>4+</b><span>Productos construidos</span></div>
+        <div class="stat"><b>Full-Stack</b><span>Backend · Frontend · Móvil</span></div>
+        <div class="stat"><b>IA aplicada</b><span>LLM, RAG y pgvector</span></div>
+        <div class="stat"><b>En producción</b><span>Docker · CI/CD · Cloud</span></div>
       </div>
     </section>
-    <div class="space-y-24">
-      <section id="experiencia" data-section="experiencia"
-        class="section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl">
-        <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
-          <svg class="size-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-            fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
-            <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path>
-            <path d="M12 12l0 .01"></path>
-            <path d="M3 13a20 20 0 0 0 18 0"></path>
-          </svg>
-          Experiencia laboral
-        </h2>
-        <ol class="relative mt-16">
-          <li class>
-            <div
-              class="relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4]">
-              <div class="relative pb-12 md:col-span-2">
-                <div class="sticky top-0">
-                  <span class="text-yellow-400 -left-[42px] absolute rounded-full text-5xl">&bull;</span>
-                  <h3 class="text-xl font-bold text-yellow-400">
-                    Backend Developer
-                  </h3>
-                  <h4 class="font-semibold text-xl text-gray-600 dark:text-white">
-                    Startup (Confidencial)
-                  </h4>
-                  <time class="p-0 m-0 text-sm text-gray-600/80 dark:text-white/80">Actualmente...</time>
-                </div>
-              </div>
-              <div class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3">
-                Desarrollo de APIs y microservicios con <strong class="text-yellow-500 dark:text-yellow-200">Spring
-                  Boot</strong> y <strong class="text-yellow-500 dark:text-yellow-200">Java</strong>.
-                Trabajo en equipo aplicando metodologías ágiles, buenas prácticas de desarrollo y arquitectura de
-                software escalable.
-              </div>
-            </div>
-          </li>
-          <li class>
-            <div
-              class="relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4]">
-              <div class="relative pb-12 md:col-span-2">
-                <div class="sticky top-0">
-                  <span class="text-yellow-400 -left-[42px] absolute rounded-full text-5xl">&bull;</span>
-                  <h3 class="text-xl font-bold text-yellow-400">
-                    Formación Académica
-                  </h3>
-                  <h4 class="font-semibold text-xl text-gray-600 dark:text-white">
-                    Ingeniería de Sistemas e Informática
-                  </h4>
-                  <time class="p-0 m-0 text-sm text-gray-600/80 dark:text-white/80">Egresado</time>
-                </div>
-              </div>
-              <div class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3">
-                Formación integral en desarrollo de software, bases de datos,
-                arquitectura de sistemas y gestión de proyectos. Enfoque en
-                tecnologías backend y desarrollo de aplicaciones empresariales.
-              </div>
-            </div>
-          </li>
-        </ol>
-      </section>
-      <section id="proyectos" data-section="proyectos"
-        class="section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl">
-        <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
-          <svg class="size-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-            stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M7 8l-4 4l4 4"></path>
-            <path d="M17 8l4 4l-4 4"></path>
-            <path d="M14 4l-4 16"></path>
-          </svg>
-          Proyectos
-        </h2>
-        <div class="flex flex-col gap-y-16">
-          <!-- Proyecto 1: Fullstack Next.js + NestJS -->
-          <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-            <div class="w-full md:w-1/2">
-              <div
-                class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-                <!-- Placeholder gradient background for project image -->
-                <div
-                  class="w-full h-56 sm:h-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-6">
-                  <div class="text-center">
-                    <div class="flex items-center justify-center gap-6 mb-4">
-                      <!-- Next.js icon -->
-                      <svg class="size-14" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="128" cy="128" r="128" fill="#000" stroke="#333" stroke-width="4" />
-                        <path fill="#fff"
-                          d="M212.634 224.028 98.335 76.8H76.8v102.357h17.228V98.68L199.11 234.446a128.433 128.433 0 0 0 13.524-10.418Z" />
-                        <path fill="#fff" d="M163.556 76.8h17.067v102.4h-17.067z" />
-                      </svg>
-                      <span class="text-white text-3xl font-light">+</span>
-                      <!-- NestJS icon -->
-                      <svg class="size-14" viewBox="0 0 264 255" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="132" cy="127" r="120" fill="#E0234E" />
-                        <text x="132" y="160" text-anchor="middle" fill="white" font-size="100" font-weight="bold"
-                          font-family="Arial">N</text>
-                      </svg>
-                    </div>
-                    <p class="text-gray-400 text-sm mb-4">Proyecto en desarrollo</p>
-                    <!-- Badge En Desarrollo -->
-                    <span
-                      class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-amber-500 text-white">
-                      <span class="relative flex h-2 w-2">
-                        <span
-                          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-                      </span>
-                      En Desarrollo
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="w-full md:w-1/2 md:max-w-lg">
-              <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                Aplicación Fullstack con Next.js y NestJS
-              </h3>
-              <div class="flex flex-wrap mt-2">
-                <ul class="flex flex-row flex-wrap mb-2 gap-2">
-                  <li>
-                    <span
-                      class="flex items-center gap-x-2 rounded-full text-xs bg-black text-white py-1.5 px-3 border border-gray-700">
-                      <svg class="size-4" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="128" cy="128" r="128" fill="#000" />
-                        <path fill="#fff"
-                          d="M212.634 224.028 98.335 76.8H76.8v102.357h17.228V98.68L199.11 234.446a128.433 128.433 0 0 0 13.524-10.418Z" />
-                        <path fill="#fff" d="M163.556 76.8h17.067v102.4h-17.067z" />
-                      </svg>
-                      Next.js
-                    </span>
-                  </li>
-                  <li>
-                    <span class="flex items-center gap-x-2 rounded-full text-xs bg-[#E0234E] text-white py-1.5 px-3">
-                      <svg class="size-4" viewBox="0 0 264 255" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="132" cy="127" r="100" fill="#E0234E" />
-                        <text x="132" y="155" text-anchor="middle" fill="white" font-size="90" font-weight="bold"
-                          font-family="Arial">N</text>
-                      </svg>
-                      NestJS
-                    </span>
-                  </li>
-                  <li>
-                    <span class="flex items-center gap-x-2 rounded-full text-xs bg-[#3178C6] text-white py-1.5 px-3">
-                      <svg class="size-4" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="256" height="256" rx="20" fill="#3178C6" />
-                        <text x="128" y="180" text-anchor="middle" fill="white" font-size="130" font-weight="bold"
-                          font-family="Arial">TS</text>
-                      </svg>
-                      TypeScript
-                    </span>
-                  </li>
-                  <li>
-                    <span class="flex items-center gap-x-2 rounded-full text-xs bg-[#336791] text-white py-1.5 px-3">
-                      <svg class="size-4" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="128" cy="128" r="120" fill="#336791" />
-                        <ellipse cx="128" cy="100" rx="50" ry="60" fill="white" />
-                        <circle cx="128" cy="90" r="15" fill="#336791" />
-                      </svg>
-                      PostgreSQL
-                    </span>
-                  </li>
-                </ul>
-                <div class="mt-2 text-gray-700 dark:text-gray-400">
-                  Aplicación web moderna con frontend en <strong
-                    class="text-yellow-500 dark:text-yellow-200">Next.js</strong>
-                  y backend en <strong class="text-yellow-500 dark:text-yellow-200">NestJS</strong>.
-                  Implementa autenticación, APIs REST, y arquitectura modular escalable.
-                </div>
-                <footer class="flex items-end justify-start mt-4 gap-x-4">
-                  <span
-                    class="inline-flex items-center justify-center gap-2 px-3 py-2 text-base text-gray-400 bg-gray-700/50 border border-gray-600/50 rounded-xl cursor-default">
-                    <svg class="size-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                      <path class="opacity-75" fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                      </path>
-                    </svg>
-                    Próximamente
-                  </span>
-                </footer>
-              </div>
-            </div>
-          </article>
 
-          <!-- Proyecto 2: Spring Boot + Kotlin (Próximo) -->
-          <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-            <div class="w-full md:w-1/2">
-              <div
-                class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-                <!-- Placeholder gradient for Kotlin + Spring Boot -->
-                <div
-                  class="w-full h-56 sm:h-full bg-gradient-to-br from-purple-900 via-green-900 to-gray-900 flex items-center justify-center p-6">
-                  <div class="text-center">
-                    <div class="flex items-center justify-center gap-6 mb-4">
-                      <!-- Spring Boot icon -->
-                      <svg class="size-14" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#6DB33F"
-                          d="M43.982,23.635c0.069-4.261-0.891-9.328-2.891-15.273l-1.568-4.662l-2.13,4.433 c-0.114,0.237-0.244,0.469-0.38,0.698C33.514,5.827,28.974,4,24,4C12.954,4,4,12.954,4,24c0,11.046,8.954,20,20,20s20-8.954,20-20 C44,23.877,43.984,23.758,43.982,23.635z" />
-                        <path fill="#fff"
-                          d="M39.385 32.558c-3.123 4.302-8.651 4.533-13.854 4.442H18.75h-1.938c4.428-1.593 7.063-1.972 9.754-3.4 5.068-2.665 10.078-8.496 11.121-14.562-1.93 5.836-7.779 10.85-13.109 12.889-3.652 1.393-10.248 2.745-10.248 2.745l-.267-.145C9.573 32.268 9.437 22.214 17.6 18.968c3.574-1.423 6.993-.641 10.854-1.593 4.122-1.012 8.89-4.208 10.83-8.375C41.456 15.667 44.07 26.106 39.385 32.558L39.385 32.558zM15.668 38.445C15.386 38.795 14.955 39 14.505 39c-.823 0-1.495-.677-1.495-1.5s.677-1.5 1.495-1.5c.341 0 .677.118.941.336C16.086 36.855 16.186 37.805 15.668 38.445L15.668 38.445z" />
-                      </svg>
-                      <span class="text-white text-3xl font-light">+</span>
-                      <!-- Kotlin icon -->
-                      <svg class="size-14" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                          <linearGradient id="kotlinGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#E44857" />
-                            <stop offset="50%" stop-color="#C711E1" />
-                            <stop offset="100%" stop-color="#7F52FF" />
-                          </linearGradient>
-                        </defs>
-                        <path fill="url(#kotlinGrad2)" d="M256 256H0V0h256L128 128 256 256z" />
-                      </svg>
-                    </div>
-                    <p class="text-gray-400 text-sm mb-4">Próximo proyecto</p>
-                    <!-- Badge Planificado -->
-                    <span
-                      class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-purple-500 text-white">
-                      <svg class="size-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Planificado
-                    </span>
-                  </div>
-                </div>
+    <section class="block wrap" id="proyectos">
+      <h2 class="title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8l-4 4 4 4"></path><path d="M17 8l4 4-4 4"></path><path d="M14 4l-4 16"></path></svg>
+        Proyectos
+      </h2>
+      <p class="lede">Productos reales que construí y llevé a producción. Algunos repositorios son privados por acuerdos con clientes/empresa; con gusto comparto acceso o una demo con los organizadores que lo soliciten.</p>
+
+      <div class="projects">
+        <article class="project">
+          <div class="project-body">
+            <div class="project-head">
+              <div>
+                <h3>Tutor Socrático IMB</h3>
+                <p class="project-tag">Asistente educativo con IA para capacitación corporativa · IMB Institute</p>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <span class="status prod">En producción</span>
+                <span class="status private">Repo privado</span>
               </div>
             </div>
-            <div class="w-full md:w-1/2 md:max-w-lg">
-              <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                API REST con Spring Boot y Kotlin
-              </h3>
-              <div class="flex flex-wrap mt-2">
-                <ul class="flex flex-row flex-wrap mb-2 gap-2">
-                  <li>
-                    <span class="flex items-center gap-x-2 rounded-full text-xs bg-[#6DB33F] text-white py-1.5 px-3">
-                      <svg class="size-4" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#6DB33F"
-                          d="M43.982,23.635c0.069-4.261-0.891-9.328-2.891-15.273l-1.568-4.662l-2.13,4.433 c-0.114,0.237-0.244,0.469-0.38,0.698C33.514,5.827,28.974,4,24,4C12.954,4,4,12.954,4,24c0,11.046,8.954,20,20,20s20-8.954,20-20 C44,23.877,43.984,23.758,43.982,23.635z" />
-                        <path fill="#fff"
-                          d="M39.385 32.558c-3.123 4.302-8.651 4.533-13.854 4.442H18.75h-1.938c4.428-1.593 7.063-1.972 9.754-3.4 5.068-2.665 10.078-8.496 11.121-14.562-1.93 5.836-7.779 10.85-13.109 12.889-3.652 1.393-10.248 2.745-10.248 2.745l-.267-.145C9.573 32.268 9.437 22.214 17.6 18.968c3.574-1.423 6.993-.641 10.854-1.593 4.122-1.012 8.89-4.208 10.83-8.375C41.456 15.667 44.07 26.106 39.385 32.558L39.385 32.558zM15.668 38.445C15.386 38.795 14.955 39 14.505 39c-.823 0-1.495-.677-1.495-1.5s.677-1.5 1.495-1.5c.341 0 .677.118.941.336C16.086 36.855 16.186 37.805 15.668 38.445L15.668 38.445z" />
-                      </svg>
-                      Spring Boot
-                    </span>
-                  </li>
-                  <li>
-                    <span
-                      class="flex items-center gap-x-2 rounded-full text-xs bg-gradient-to-r from-[#E44857] via-[#C711E1] to-[#7F52FF] text-white py-1.5 px-3">
-                      <svg class="size-4" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="white" d="M256 256H0V0h256L128 128 256 256z" />
-                      </svg>
-                      Kotlin
-                    </span>
-                  </li>
-                  <li>
-                    <span class="flex items-center gap-x-2 rounded-full text-xs bg-[#336791] text-white py-1.5 px-3">
-                      <svg class="size-4" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="128" cy="128" r="120" fill="#336791" />
-                        <ellipse cx="128" cy="100" rx="50" ry="60" fill="white" />
-                        <circle cx="128" cy="90" r="15" fill="#336791" />
-                      </svg>
-                      PostgreSQL
-                    </span>
-                  </li>
-                  <li>
-                    <span class="flex items-center gap-x-2 rounded-full text-xs bg-[#2496ED] text-white py-1.5 px-3">
-                      <svg class="size-4" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="256" height="256" rx="20" fill="#2496ED" />
-                        <text x="128" y="170" text-anchor="middle" fill="white" font-size="100" font-weight="bold"
-                          font-family="Arial">D</text>
-                      </svg>
-                      Docker
-                    </span>
-                  </li>
-                </ul>
-                <div class="mt-2 text-gray-700 dark:text-gray-400">
-                  API REST desarrollada con <strong class="text-yellow-500 dark:text-yellow-200">Spring Boot 3</strong>
-                  y <strong class="text-yellow-500 dark:text-yellow-200">Kotlin</strong>.
-                  Arquitectura limpia, validaciones robustas, documentación con OpenAPI y containerización con Docker.
-                </div>
-                <footer class="flex items-end justify-start mt-4 gap-x-4">
-                  <span
-                    class="inline-flex items-center justify-center gap-2 px-3 py-2 text-base text-gray-400 bg-gray-700/50 border border-gray-600/50 rounded-xl cursor-default">
-                    <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Próximamente
-                  </span>
-                </footer>
-              </div>
+
+            <p class="project-desc">
+              Asistente conversacional que guía al estudiante con <strong>preguntas progresivas (método socrático)</strong> en
+              lugar de dar respuestas directas. Web (MVP) y móvil, embebido en el aula virtual de IMB mediante
+              <strong>LTI 1.3</strong> sobre Moodle.
+            </p>
+
+            <div class="gallery">
+              <a href="/img/projects/tutor-socratico-1.png" target="_blank" rel="noopener">
+                <img src="/img/projects/tutor-socratico-1.png" alt="Interfaz del Tutor Socrático IMB: conversación guiada por etapas" loading="lazy" />
+                <figcaption>Conversación guiada por etapas (web)</figcaption>
+              </a>
+              <a href="/img/projects/tutor-socratico-2.png" target="_blank" rel="noopener">
+                <img src="/img/projects/tutor-socratico-2.png" alt="Vista móvil del Tutor Socrático IMB con ruta de razonamiento" loading="lazy" />
+                <figcaption>Vista móvil y ruta de razonamiento</figcaption>
+              </a>
             </div>
-          </article>
-        </div>
-      </section>
-      <section id="sobre-mi" data-section="sobre-mi"
-        class="section undefined scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl">
-        <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white">
-          <svg class="size-8" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-            fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
-            <path d="M6 21v-2a4 4 0 0 1 4 -4h4"></path>
-            <path d="M15 19l2 2l4 -4"></path>
-          </svg>
-          Sobre mí
-        </h2>
-        <article class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
-          <div
-            class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1">
-            <p>
-              Soy <strong>Clever Johann Machaca Asto</strong>, Ingeniero de Sistemas e
-              Informática de Perú. Mi pasión está en el desarrollo backend,
-              donde me especializo en crear APIs robustas y escalables.
-            </p>
-            <p>
-              Actualmente trabajo en una startup desarrollando con <strong>Spring Boot</strong>
-              y <strong>Java</strong>, mientras continúo aprendiendo <strong>Next.js</strong>,
-              <strong>NestJS</strong> y <strong>Kotlin</strong> para ampliar mis habilidades fullstack.
-            </p>
-            <p>
-              Valoro el trabajo en equipo, la colaboración y el aprendizaje continuo.
-              Estoy abierto a nuevas oportunidades donde pueda aportar mis
-              conocimientos y seguir creciendo profesionalmente.
-            </p>
+
+            <ul class="chips">
+              <li>Python 3.13</li><li>FastAPI</li><li>PostgreSQL 16</li><li>pgvector</li><li>Redis</li>
+              <li>Google Gemini</li><li>Flutter</li><li>Moodle LTI 1.3</li><li>Docker</li><li>GitHub Actions</li>
+            </ul>
+
+            <ul class="highlights">
+              <li><strong>RAG</strong> sobre el contenido del curso con embeddings de Gemini y búsqueda vectorial en pgvector.</li>
+              <li><strong>Integración LTI 1.3</strong> con Moodle institucional para lanzamiento y contexto del estudiante.</li>
+              <li><strong>Rate limiting y cola de eventos con Redis</strong> para controlar costos y picos de uso del LLM.</li>
+              <li><strong>Desplegado en DigitalOcean</strong> con Docker Compose y pipeline de CI/CD en GitHub Actions.</li>
+              <li>Frontend <strong>Flutter</strong> compartido para web (MVP) y app móvil.</li>
+            </ul>
+
+            <div class="project-foot">
+              <span class="note">Repositorio privado por confidencialidad del cliente · demo disponible a solicitud.</span>
+            </div>
           </div>
-          <img width="200" height="200" src="/img/IMG_20240509_173932_867.jpg" alt="Clever Johann Machaca Asto"
-            class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
-            style="object-position: 50% 50%" />
         </article>
-      </section>
-    </div>
-  </main>
-  <footer class="opacity-80 m-4 mt-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center">
-    <div class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4">
-      <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90">© 2025
-        <a href="https://github.com/cleverjohann" class="hover:underline">Clever Johann Machaca Asto</a>.
-        Todos los derechos reservados
-      </span>
-      <ul class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0">
+
+        <article class="project">
+          <div class="project-body">
+            <div class="project-head">
+              <div>
+                <h3>TYNBIZ Platform</h3>
+                <p class="project-tag">Plataforma de live commerce (SaaS) para tiendas virtuales</p>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <span class="status dev">Pre-lanzamiento v1.0</span>
+                <span class="status private">Repo privado</span>
+              </div>
+            </div>
+
+            <p class="project-desc">
+              Plataforma que conecta tiendas virtuales con sus clientes mediante <strong>salas de video, audio y chat en vivo</strong>
+              para generar confianza en compras online. Incluye panel de administración, planes, pagos e integraciones con
+              e-commerce.
+            </p>
+
+            <div class="gallery">
+              <a href="/img/projects/tynbiz-1.png" target="_blank" rel="noopener">
+                <img src="/img/projects/tynbiz-1.png" alt="Panel de administración de TYNBIZ: gestión de solicitudes" loading="lazy" />
+                <figcaption>Panel admin · gestión de solicitudes</figcaption>
+              </a>
+              <a href="/img/projects/tynbiz-2.png" target="_blank" rel="noopener">
+                <img src="/img/projects/tynbiz-2.png" alt="Dashboard de estadísticas de TYNBIZ" loading="lazy" />
+                <figcaption>Dashboard de métricas y ganancias</figcaption>
+              </a>
+            </div>
+
+            <ul class="chips">
+              <li>Java 21</li><li>Spring Boot 3.5</li><li>PostgreSQL 16</li><li>Flyway</li><li>Jitsi (JWT)</li>
+              <li>Mercado Pago</li><li>Niubiz</li><li>Cloudflare R2</li><li>Shopify / WooCommerce</li><li>Docker</li><li>Railway</li>
+            </ul>
+
+            <ul class="highlights">
+              <li><strong>Monolito modular</strong> por capas, con ADRs, pruebas de integración (Testcontainers) y migraciones versionadas con Flyway.</li>
+              <li><strong>Autenticación JWT</strong> y cifrado <strong>AES-256-GCM</strong> de datos sensibles.</li>
+              <li><strong>Salas de video en vivo self-hosted con Jitsi</strong> y tokens JWT firmados.</li>
+              <li><strong>Integración de pagos</strong> (Mercado Pago y Niubiz) y de catálogo con <strong>Shopify y WooCommerce</strong>.</li>
+              <li><strong>Despliegue continuo en Railway</strong> con almacenamiento de archivos en Cloudflare R2.</li>
+            </ul>
+
+            <div class="project-foot">
+              <span class="note">Repositorio privado (producto en pre-lanzamiento) · demo disponible a solicitud.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-body">
+            <div class="project-head">
+              <div>
+                <h3>Lumi — Asistente educativo de escritorio</h3>
+                <p class="project-tag">App de escritorio (overlay) para acompañar el estudio</p>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <span class="status dev">En desarrollo</span>
+              </div>
+            </div>
+
+            <p class="project-desc">
+              Asistente educativo <strong>pop-out</strong> para escritorio: una ventana flotante que acompaña al estudiante sin
+              interrumpir su trabajo, con backend reactivo y empaquetado nativo multiplataforma.
+            </p>
+
+            <ul class="chips">
+              <li>Tauri 2</li><li>Rust</li><li>Vite</li><li>Convex</li><li>TypeScript</li>
+            </ul>
+
+            <ul class="highlights">
+              <li>App nativa ligera combinando <strong>Rust</strong> y WebView con <strong>Tauri 2</strong>.</li>
+              <li>Backend reactivo en tiempo real con <strong>Convex</strong>.</li>
+              <li>Overlay siempre visible y empaquetado multiplataforma.</li>
+            </ul>
+
+            <div class="project-foot">
+              <a class="btn" href="https://github.com/0wex/michi-teach" target="_blank" rel="noopener noreferrer">Ver repositorio</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-body">
+            <div class="project-head">
+              <div>
+                <h3>DocuGraph</h3>
+                <p class="project-tag">Editor de documentación atómica + grafo de dependencias + servidor MCP para agentes de IA</p>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <span class="status dev">En desarrollo</span>
+                <span class="status private">Repo privado</span>
+              </div>
+            </div>
+
+            <p class="project-desc">
+              Herramienta multiplataforma para escribir documentación <strong>atómica</strong>, visualizar el <strong>grafo de
+              dependencias</strong> entre documentos y exponer ese contexto a agentes de programación mediante un
+              <strong>servidor MCP</strong> escrito en Kotlin. Proyecto para <strong>RevenueCat Shipaton 2026</strong>.
+            </p>
+
+            <ul class="chips">
+              <li>Kotlin Multiplatform</li><li>MCP (Model Context Protocol)</li><li>Grafos de dependencias</li><li>Agentes de IA</li>
+            </ul>
+
+            <ul class="highlights">
+              <li><strong>Grafo de dependencias</strong> para mantener documentación consistente y sin huecos.</li>
+              <li><strong>Servidor MCP</strong> que entrega contexto estructurado a agentes de IA durante el desarrollo.</li>
+              <li>Enfoque multiplataforma con <strong>Kotlin</strong>.</li>
+            </ul>
+
+            <div class="project-foot">
+              <span class="note">Repositorio privado durante el desarrollo · disponible a solicitud.</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="lede" style="margin-top:24px">
+        Más evidencia pública de código en
+        <a href="https://github.com/cleverjohann?tab=repositories" target="_blank" rel="noopener noreferrer">github.com/cleverjohann</a>:
+        microservicios y backends en Java/Kotlin, apps Flutter, así como experimentos de IA y automatización.
+      </p>
+    </section>
+
+    <section class="block wrap" id="experiencia">
+      <h2 class="title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M3 13a20 20 0 0 0 18 0"></path></svg>
+        Experiencia
+      </h2>
+      <ul class="timeline">
         <li>
-          <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
+          <h3>Backend Developer</h3>
+          <div class="where">Startup (confidencial)</div>
+          <div class="when">Actualmente</div>
+          <p>Desarrollo de APIs y microservicios con <strong>Spring Boot</strong> y <strong>Java</strong>. Trabajo en equipo con metodologías ágiles, buenas prácticas y arquitectura de software escalable.</p>
         </li>
         <li>
-          <a id="contacto" href="mailto:mcleverjohann@gmail.com" class="hover:underline">Contacto</a>
+          <h3>Ingeniería de Sistemas e Informática</h3>
+          <div class="where">Formación académica · Perú</div>
+          <div class="when">Egresado</div>
+          <p>Formación en desarrollo de software, bases de datos, arquitectura de sistemas y gestión de proyectos, con enfoque en backend y aplicaciones empresariales.</p>
         </li>
       </ul>
+    </section>
+
+    <section class="block wrap" id="skills">
+      <h2 class="title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"></path><path d="M3 13l9 5 9-5"></path></svg>
+        Skills
+      </h2>
+      <div class="skills">
+        <div class="skill-group">
+          <h3>Backend</h3>
+          <ul><li>Java</li><li>Spring Boot</li><li>Kotlin</li><li>Python</li><li>FastAPI</li><li>NestJS</li><li>REST APIs</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Frontend y Móvil</h3>
+          <ul><li>TypeScript</li><li>Next.js</li><li>React</li><li>Flutter / Dart</li><li>Tauri 2</li><li>Rust</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Datos e Infra</h3>
+          <ul><li>PostgreSQL</li><li>pgvector</li><li>Redis</li><li>Flyway</li><li>Docker</li><li>GitHub Actions</li><li>Railway / DigitalOcean</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>IA y otros</h3>
+          <ul><li>LLM / Gemini</li><li>RAG</li><li>Embeddings</li><li>MCP</li><li>Convex</li><li>Jitsi</li><li>Integraciones de pago</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block wrap about" id="sobre-mi">
+      <h2 class="title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0 4 4 0 0 0-8 0"></path><path d="M6 21v-2a4 4 0 0 1 4-4h4"></path><path d="M15 19l2 2 4-4"></path></svg>
+        Sobre mí
+      </h2>
+      <p>
+        Soy <strong>Clever Johann Machaca Asto</strong>, Ingeniero de Sistemas e Informática de Arequipa, Perú. Me enfoco en
+        <strong>construir y llevar productos reales a producción</strong>, cubriendo backend, frontend y móvil, e integrando IA
+        cuando aporta valor.
+      </p>
+      <p>
+        Disfruto el diseño de APIs robustas y escalables, la arquitectura de software y los detalles de calidad (pruebas,
+        migraciones, observabilidad y despliegue). También me motiva el trabajo en equipo, la colaboración y el aprendizaje
+        continuo, con especial interés en herramientas para desarrolladores y agentes de IA.
+      </p>
+      <p class="note" style="margin-top:18px">
+        Actualmente en búsqueda de nuevas oportunidades y participando en retos y hackathones para seguir creciendo.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap foot-inner">
+      <span>© <span id="year"></span> Clever Johann Machaca Asto · Arequipa, Perú</span>
+      <div class="foot-links">
+        <a href="mailto:mcleverjohann@gmail.com">mcleverjohann@gmail.com</a>
+        <a href="https://github.com/cleverjohann" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/clever-machaca/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var stored = null;
+      try { stored = localStorage.getItem("theme"); } catch (e) { }
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var isDark = stored ? stored === "dark" : prefersDark;
+      if (isDark) root.classList.add("dark");
+      document.getElementById("theme-toggle").addEventListener("click", function () {
+        var nowDark = !root.classList.contains("dark");
+        root.classList.toggle("dark", nowDark);
+        try { localStorage.setItem("theme", nowDark ? "dark" : "light"); } catch (e) { }
+      });
+      document.getElementById("year").textContent = new Date().getFullYear();
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Clever Johann Machaca Asto",
+    "jobTitle": "Full-Stack Engineer",
+    "description": "Ingeniero de Sistemas e Informática. Full-Stack Engineer especializado en backend (Java/Spring Boot, Kotlin, Python/FastAPI), frontend y móvil (Flutter, TypeScript) e IA aplicada.",
+    "url": "https://cleverjohann.github.io/",
+    "image": "https://cleverjohann.github.io/img/IMG_20240509_173932_867.jpg",
+    "email": "mailto:mcleverjohann@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Arequipa", "addressCountry": "PE" },
+    "knowsAbout": ["Java", "Spring Boot", "Kotlin", "Python", "FastAPI", "Flutter", "TypeScript", "Next.js", "NestJS", "Rust", "Tauri", "PostgreSQL", "pgvector", "Redis", "Docker", "GitHub Actions", "LLM", "RAG", "Model Context Protocol"],
+    "sameAs": [
+      "https://github.com/cleverjohann",
+      "https://www.linkedin.com/in/clever-machaca/"
+    ]
+  }
+  </script>
 </body>
 
 </html>
